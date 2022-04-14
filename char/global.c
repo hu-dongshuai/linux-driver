@@ -6,6 +6,7 @@
 #include <linux/uaccess.h>
 #include <linux/sched/signal.h>
 #include <linux/wait.h>
+
 #define GLOBALMEM_SIZE 0x1000                                                                                                                                                                               
 #define MEM_CLEAR 0x1
 #define GLOBALMEM_MAJOR 230
@@ -57,6 +58,7 @@ static ssize_t globalmem_read(struct file *filp, char __user *buf, size_t count,
         printk("juedge pending\n");
         if(signal_pending(current))
         {
+            printk("wake up by signal\n");
             ret = -ERESTARTSYS;
             goto out2;
         }
