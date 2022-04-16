@@ -18,6 +18,7 @@ struct test_dev {
 	struct semaphore sem;
 	wait_queue_head_t r_wait;
 	wait_queue_head_t w_wait;
+	struct fasync_struct *async_queue;
 };
 
 struct test_dev *test_devp;
@@ -59,7 +60,7 @@ static ssize_t test_write(struct file *filp, const char __user *buf, size_t coun
 		schedule();
 		if(signal_pending(current))
 		{
-			ret = -ERESTARTSYS;
+			ret = -ERESTART;
 			goto out2;
 		}
 		down(&dev->sem);
@@ -73,6 +74,10 @@ static ssize_t test_write(struct file *filp, const char __user *buf, size_t coun
 		dev->current_len += count;
 		ret = count;
 		wake_up_interruptible(&dev->r_wait);
+		if(dev->async_queue)
+		{
+			kill_fasync(&dev->async_queue, SIGIO, POLL_IN);
+		}
 	}
 
 	 up(&dev->sem);
@@ -123,7 +128,6 @@ static ssize_t test_read(struct file *filp, char __user *buf, size_t count, loff
 	} else 
 	{
 		dev->current_len -= count;
-		printk("read %ld bytes, ret = %d, *ppos = %lld\n", count, ret, *ppos);
 		wake_up_interruptible(&dev->w_wait);
 		ret = count;
 	}
@@ -135,8 +139,14 @@ out2:remove_wait_queue(&dev->w_wait, &wait);
 	return ret;
 }
 
+static int test_fasync(int fd, struct file *filp, int mode)
+{
+	struct test_dev *dev = filp->private_data;
+	return fasync_helper(fd, filp, mode, &dev->async_queue);
+}
 static int test_close (struct inode *node, struct file *filp)
 {
+	test_fasync(-1, filp, 0);
 	return 0;
 }
 static const struct file_operations test_fops = {
@@ -144,6 +154,7 @@ static const struct file_operations test_fops = {
 	.open = test_open,
 	.write = test_write,
 	.read = test_read,
+	.fasync = test_fasync,
 	.release = test_close,
 };
 
