@@ -9,9 +9,11 @@
 #include <linux/interrupt.h>
 #define TEST_MAJOR 230
 #define TEST_SIZE 100
+#define IRQ_TEST
 
 static int test_major = TEST_MAJOR;
 static int irqnumber=29;
+
 struct test_dev {
 	struct cdev cdev;
 	char mem[TEST_SIZE];
@@ -170,9 +172,16 @@ static void test_dev_setup(struct test_dev *dev, int index)
 		printk("fail to add test dev\n");
 	}
 }
+void do_tasklet(struct tasklet_struct *task)
+{
+	printk("tasklet\n");
+}
+struct tasklet_struct my_tasklet;
+DECLARE_TASKLET(my_tasklet, &do_tasklet);
 static irqreturn_t test_handler(int irq, void *id)
 {
 	printk("interrupt!\n");
+	tasklet_schedule(&my_tasklet);
 	return IRQ_HANDLED;
 }
 static int __init test_init(void)
@@ -192,11 +201,13 @@ static int __init test_init(void)
 	if(ret < 0)
 		return ret;
 
+#ifdef IRQ_TEST
 	ret = request_irq(irqnumber, test_handler,IRQF_SHARED, "test_irq", &devo);
 	if(ret)
 	{
 		printk("Failed to request irq\n");
 	}
+#endif
 	
 	test_devp = kzalloc(2*sizeof(struct test_dev), GFP_KERNEL);
 
@@ -225,7 +236,9 @@ void __exit test_exit(void)
 	cdev_del(&(test_devp[0].cdev));
 	cdev_del(&(test_devp[1].cdev));
 	kfree(test_devp);
+#ifdef IRQ_TEST
 	free_irq(irqnumber, &devn);
+#endif
 	unregister_chrdev_region(MKDEV(test_major, 0), 2);
 }
 
