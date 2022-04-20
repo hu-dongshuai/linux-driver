@@ -7,15 +7,17 @@
 #include <linux/wait.h>
 #include <linux/init.h>
 #include <linux/interrupt.h>
+#include <linux/platform_device.h>
+#include <linux/mod_devicetable.h>
+#include <linux/of.h>
+
 #define TEST_MAJOR 230
 #define TEST_SIZE 100
-#define IRQ_TEST
+//#define IRQ_TEST
 
 static int test_major = TEST_MAJOR;
-static int irqnumber=29;
-
-struct test_dev {
-	struct cdev cdev;
+//static int irqnumber=29;
+struct test_dev { struct cdev cdev;
 	char mem[TEST_SIZE];
 	int current_len;
 	struct semaphore sem;
@@ -176,6 +178,8 @@ void do_tasklet(struct tasklet_struct *task)
 {
 	printk("tasklet\n");
 }
+
+#ifdef IRQ_TEST
 struct tasklet_struct my_tasklet;
 DECLARE_TASKLET(my_tasklet, &do_tasklet);
 static irqreturn_t test_handler(int irq, void *id)
@@ -184,7 +188,9 @@ static irqreturn_t test_handler(int irq, void *id)
 	tasklet_schedule(&my_tasklet);
 	return IRQ_HANDLED;
 }
-static int __init test_init(void)
+#endif
+
+static int  test_probe(struct platform_device *pdev)
 {
 	int ret, i;
 	dev_t devo = MKDEV(test_major, 0);
@@ -230,17 +236,45 @@ fail_malloc:
 	return 0;
 }
 
-void __exit test_exit(void)
+static int test_remove(struct platform_device *pdev)
 {
-	dev_t devn = MKDEV(test_major, 0);
 	cdev_del(&(test_devp[0].cdev));
 	cdev_del(&(test_devp[1].cdev));
 	kfree(test_devp);
 #ifdef IRQ_TEST
+	dev_t devn = MKDEV(test_major, 0);
 	free_irq(irqnumber, &devn);
 #endif
 	unregister_chrdev_region(MKDEV(test_major, 0), 2);
+	return 0;
 }
+
+static const struct of_device_id test_key_table[] = {
+	{.compatible = "arm,test"},
+	{},
+};
+
+static struct platform_driver test_device_driver = {
+	.probe = test_probe,
+	.remove = test_remove,
+	.driver = {
+		.name = "test",
+		.owner = THIS_MODULE,
+		.of_match_table = of_match_ptr(test_key_table),
+	}
+};
+
+static int __init test_init(void)
+{
+	return platform_driver_register(&test_device_driver);
+}
+
+
+static void __exit test_exit(void)
+{
+	platform_driver_unregister(&test_device_driver);
+}
+
 
 MODULE_LICENSE("GPL");
 module_init(test_init);
