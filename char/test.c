@@ -6,11 +6,12 @@
 #include <linux/sched/signal.h>
 #include <linux/wait.h>
 #include <linux/init.h>
+#include <linux/interrupt.h>
 #define TEST_MAJOR 230
 #define TEST_SIZE 100
 
 static int test_major = TEST_MAJOR;
-
+static int irqnumber=29;
 struct test_dev {
 	struct cdev cdev;
 	char mem[TEST_SIZE];
@@ -169,7 +170,11 @@ static void test_dev_setup(struct test_dev *dev, int index)
 		printk("fail to add test dev\n");
 	}
 }
-
+static irqreturn_t test_handler(int irq, void *id)
+{
+	printk("interrupt!\n");
+	return IRQ_HANDLED;
+}
 static int __init test_init(void)
 {
 	int ret, i;
@@ -186,6 +191,12 @@ static int __init test_init(void)
 
 	if(ret < 0)
 		return ret;
+
+	ret = request_irq(irqnumber, test_handler,IRQF_SHARED, "test_irq", &devo);
+	if(ret)
+	{
+		printk("Failed to request irq\n");
+	}
 	
 	test_devp = kzalloc(2*sizeof(struct test_dev), GFP_KERNEL);
 
@@ -210,9 +221,11 @@ fail_malloc:
 
 void __exit test_exit(void)
 {
+	dev_t devn = MKDEV(test_major, 0);
 	cdev_del(&(test_devp[0].cdev));
 	cdev_del(&(test_devp[1].cdev));
 	kfree(test_devp);
+	free_irq(irqnumber, &devn);
 	unregister_chrdev_region(MKDEV(test_major, 0), 2);
 }
 

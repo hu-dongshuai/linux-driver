@@ -5,13 +5,14 @@ KVERS = $(shell uname -r)
 #KERNEL_DIR := /lib/modules/$(KVERS)/build
 KERNEL_DIR := /home/h/linux/kernel
 
+ARCH=arm
+CROSS_COMPILE=arm-linux-gnueabi-
+
 #Kernel modules
 ifeq ($(env),global)
 	obj-m = global.o
-else ifeq ($(env),global_test)
-	obj-m = global_test.o
 else
-	obj-m = test.o
+	obj-m = $(env).o
 endif
 
 #obj-m := modulename.o(多个文件需要编译)
@@ -22,7 +23,7 @@ endif
 
 build:kernel_modules cp_modules
 kernel_modules:
-		make -C $(KERNEL_DIR) M=$(CURDIR) modules
+		make -C $(KERNEL_DIR) M=$(CURDIR) modules CROSS_COMPILE=arm-linux-gnueabi- ARCH=arm
 cp_modules:
 		$(shell cp *.ko /home/h/linux/shared)
 clean:
