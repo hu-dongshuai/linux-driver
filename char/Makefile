@@ -3,17 +3,12 @@ CURDIR := $(shell pwd)
 KVERS = $(shell uname -r)
 
 #KERNEL_DIR := /lib/modules/$(KVERS)/build
-KERNEL_DIR := /home/h/linux/kernel
+KERNEL_DIR := /home/h/linux/kernel/4.14
 
 ARCH=arm
 CROSS_COMPILE=arm-linux-gnueabi-
 
-#Kernel modules
-ifeq ($(env),global)
-	obj-m = global.o
-else
-	obj-m = $(env).o
-endif
+obj-m = global.o
 
 #obj-m := modulename.o(多个文件需要编译)
 #modulename-objs := file1.o file2.o

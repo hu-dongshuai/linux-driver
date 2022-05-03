@@ -61,7 +61,7 @@ static void vmem_disk_transfer(struct vmem_disk_dev *dev, unsigned long sector,
 {
 	unsigned long offset = sector*KERNEL_SECTOR_SIZE;
 	unsigned long nbytes = nsect*KERNEL_SECTOR_SIZE;
-	
+	printk("offset %ld, nbytes %ld, buffer %s\n", offset, nbytes, buffer);
 	if((offset + nbytes) > dev->size)
 	{
 		printk("Beyond-endwrite.\n");
@@ -70,14 +70,14 @@ static void vmem_disk_transfer(struct vmem_disk_dev *dev, unsigned long sector,
 	if(write)
 	{
 		//printk("write");
-		copy_from_user(dev->data+offset, buffer, nbytes);
-		//memcpy(dev->data + offset, buffer, nbytes);
+		//copy_from_user(dev->data+offset, buffer, nbytes);
+		memcpy(dev->data + offset, buffer, nbytes);
 	}
 	else
 	{
 		//printk("read\n");
-		copy_to_user(buffer, dev->data+offset, nbytes);
-		//memcpy(buffer, dev->data+offset, nbytes);
+		//copy_to_user(buffer, dev->data+offset, nbytes);
+		memcpy(buffer, dev->data+offset, nbytes);
 	}
 
 }
@@ -89,9 +89,8 @@ static int vmem_disk_xfer_bio(struct vmem_disk_dev *dev, struct bio *bio)
 	sector_t sector = bio->bi_iter.bi_sector;
 	bio_for_each_segment(bvec, bio, iter)
 	{
-
 		char *buffer = __bio_kmap_atomic(bio,iter);
-		vmem_disk_transfer(dev, sector, bio_cur_bytes(bio),
+		vmem_disk_transfer(dev, sector, bio_cur_bytes(bio)>>9,
 			buffer, bio_data_dir(bio) == WRITE);
 			sector += bio_cur_bytes(bio) >> 9;
 			__bio_kunmap_atomic(buffer);
@@ -105,27 +104,30 @@ static unsigned int vmem_disk_make_request(struct request_queue *q, struct bio *
 	int status;
 	status = vmem_disk_xfer_bio(dev, bio);
 	bio_endio(bio);
-	return 0;  //return ?
+	return status;  
 }
-/*
+
 static void vmem_disk_request(struct request_queue *q)
 {
 	struct request *req;
+	struct bio* bio;
 	while ((req = blk_peek_request(q))!= NULL)
 	{
 		struct vmem_disk_dev *dev = req->rq_disk->private_data;
-		if (!blk_fs_request(req))
+		if (req->cmd_flags != 1)
 		{
 			printk("Skip non-fs request\n");
-			end_request(req, 0);
+			blk_start_request(req);
+			__blk_end_request_all(req, -EIO);
 			continue;
 		}
-		vmem_disk_transfer(dev, req->sector, req->currrent_nr_sectors, req->buffer, rq_data_dir(req));
-
-		end_request(req, q);
+		blk_start_request(req);
+		__rq_for_each_bio(bio, req)
+			vmem_disk_xfer_bio(dev, bio);
+		__blk_end_request_all(req, 0);
 	}
 }
-*/
+
 static int vmem_disk_getgeo(struct block_device *bdev, struct hd_geometry *geo)
 {
 	long size;
@@ -136,19 +138,20 @@ static int vmem_disk_getgeo(struct block_device *bdev, struct hd_geometry *geo)
 	geo->heads = 4;
 	geo->sectors = 16;
 	geo->start = 4;
-
+	pirntk("vmemdisk getgeo \n");
 	return 0;
 }
 static struct block_device_operations vmem_disk_ops = {
 	.owner = THIS_MODULE,
 	.getgeo = vmem_disk_getgeo, 
 };
+
 static void setup_device( struct vmem_disk_dev *dev, int which)
 {
 	memset(dev, 0, sizeof(struct vmem_disk_dev));
 	dev->size = nsectors*hardsect_size;
 	dev->data = vmalloc(dev->size);
-	printk("vmalloc\n");
+	printk("vmalloc for data\n");
 	if(dev->data == NULL)
 	{
 		printk("vmalloc fail.\n");
@@ -156,19 +159,21 @@ static void setup_device( struct vmem_disk_dev *dev, int which)
 	}
 
 	spin_lock_init(&dev->lock);
-	//blk_queue_logical_block_size(dev->queue, hardsect_size);
 	switch (request_mode) {
 		case RM_NOQUEUE:
+			//dev->queue = blk_init_queue(vmem_disk_request, &dev->lock);
 			dev->queue = blk_alloc_queue(GFP_KERNEL);
 			if(dev->queue == NULL)
 				goto out_vfree;
 			blk_queue_make_request(dev->queue, vmem_disk_make_request);
+			printk("NOQUEUE mode\n");
 			break;
 		default :
 			printk("default\n");
 	}
+	blk_queue_logical_block_size(dev->queue, hardsect_size);
 	dev->queue->queuedata = dev;
-	dev->gd = alloc_disk(vmem_disk_major);
+	dev->gd = alloc_disk(which*vmem_disk_MINORS); // para is minor
 	if(! dev->gd)
 	{
 		printk("alloc_disk fial.\n");
@@ -178,6 +183,7 @@ static void setup_device( struct vmem_disk_dev *dev, int which)
 	dev->gd->first_minor = which*vmem_disk_MINORS;
 	dev->gd->fops = &vmem_disk_ops;
 	dev->gd->private_data = dev;
+	dev->gd->queue = dev->queue;
 	snprintf(dev->gd->disk_name, 32, "vmem_disk%c", which+'a');
 	set_capacity(dev->gd, nsectors*(hardsect_size/KERNEL_SECTOR_SIZE));
 	add_disk(dev->gd);
@@ -207,7 +213,7 @@ static int __init vmem_disk_init(void)
 	return 0;
 	
 out_unregister:
-	unregister_blkdev(vmem_disk_major, "sbd");
+	unregister_blkdev(vmem_disk_major, "vmem_disk");
 	return -ENOMEM;
 }
 void __exit vmem_disk_exit(void)
@@ -230,7 +236,7 @@ void __exit vmem_disk_exit(void)
 		if (dev->data)
 			vfree(dev->data);
 	}
-	unregister_blkdev(vmem_disk_major, "sbd");
+	unregister_blkdev(vmem_disk_major, "vmem_disk");
 	kfree(Devices);
 }
 module_init(vmem_disk_init);

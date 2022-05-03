@@ -86,6 +86,7 @@ static ssize_t test_write(struct file *filp, const char __user *buf, size_t coun
 	}
 
 	 up(&dev->sem);
+	 return 0;
 out: up(&dev->sem);
 out2: remove_wait_queue(&dev->w_wait, &wait);
 	return ret;
@@ -137,6 +138,7 @@ static ssize_t test_read(struct file *filp, char __user *buf, size_t count, loff
 		ret = count;
 	}
 	up(&dev->sem);
+	return 0;
 
 out:up(&dev->sem);
 out2:remove_wait_queue(&dev->w_wait, &wait);
@@ -231,9 +233,10 @@ static int  test_probe(struct platform_device *pdev)
 		init_waitqueue_head(&(test_devp[i].w_wait));
 	}
 	
+	return 0;
 fail_malloc:
 	unregister_chrdev_region(MKDEV(test_major, 0), 1);
-	return 0;
+	return ret;
 }
 
 static int test_remove(struct platform_device *pdev)
