@@ -138,7 +138,7 @@ static int vmem_disk_getgeo(struct block_device *bdev, struct hd_geometry *geo)
 	geo->heads = 4;
 	geo->sectors = 16;
 	geo->start = 4;
-	pirntk("vmemdisk getgeo \n");
+	printk("vmemdisk getgeo \n");
 	return 0;
 }
 static struct block_device_operations vmem_disk_ops = {
