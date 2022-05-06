@@ -1,0 +1,22 @@
+{
+    "files.associations": {
+        "fs.h": "c",
+        "linkage.h": "c",
+        "fcntl.h": "c",
+        "module.h": "c",
+        "signal.h": "c",
+        "wait.h": "c",
+        "mm.h": "c",
+        "slab.h": "c",
+        "timer.h": "c",
+        "debugobjects.h": "c",
+        "errno.h": "c",
+        "types.h": "c",
+        "hdreg.h": "c",
+        "buffer_head.h": "c",
+        "gfp.h": "c",
+        "blkdev.h": "c",
+        "pagemap.h": "c",
+        "typeinfo": "c"
+    }
+}
