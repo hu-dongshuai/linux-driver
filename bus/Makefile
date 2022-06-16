@@ -9,7 +9,9 @@ ARCH=arm
 CROSS_COMPILE=arm-linux-
 export ARCH CROSS_COMPILE
 
-obj-m = global.o
+#src := $(wildcard *.c)
+#obj-m := $(patsubst %.c,%.o,$(src))
+obj-m := xdrv.o
 
 #obj-m := modulename.o(多个文件需要编译)
 #modulename-objs := file1.o file2.o
@@ -17,7 +19,7 @@ obj-m = global.o
 #Specify flags for the module compliation.
 #EXTRA_CFLAGS=-g -O0
 
-build:kernel_modules cp_modules
+build:kernel_modules
 kernel_modules:
 		make -C $(KERNEL_DIR) M=$(CURDIR) modules 
 clean:

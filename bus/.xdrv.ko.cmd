@@ -1,0 +1,1 @@
+cmd_/home/hds/myfile/fire_linux/linux-driver/bus/xdrv.ko := arm-linux-ld -r  -EL -T ./scripts/module-common.lds -T ./arch/arm/kernel/module.lds  --build-id  -o /home/hds/myfile/fire_linux/linux-driver/bus/xdrv.ko /home/hds/myfile/fire_linux/linux-driver/bus/xdrv.o /home/hds/myfile/fire_linux/linux-driver/bus/xdrv.mod.o ;  true
