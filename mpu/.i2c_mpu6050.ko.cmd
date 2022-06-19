@@ -1,0 +1,1 @@
+cmd_/home/hds/myfile/fire_linux/linux-driver/mpu/i2c_mpu6050.ko := arm-linux-ld -r  -EL -T ./scripts/module-common.lds -T ./arch/arm/kernel/module.lds  --build-id  -o /home/hds/myfile/fire_linux/linux-driver/mpu/i2c_mpu6050.ko /home/hds/myfile/fire_linux/linux-driver/mpu/i2c_mpu6050.o /home/hds/myfile/fire_linux/linux-driver/mpu/i2c_mpu6050.mod.o ;  true

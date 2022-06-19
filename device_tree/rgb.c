@@ -7,35 +7,35 @@
 #include <linux/uaccess.h>
 #include <linux/platform_device.h>
 #include <linux/mod_devicetable.h>
-
-static struct platform_device_id led_pdev_ids[] = {
-	{.name = "led_pdev"},
+#include <linux/of.h>
+#include <linux/of_address.h>
+static struct of_device_id rgb_led[] = {
+	{.name = "rgb_led"},
 	{}
 };
 
 struct led_data
 {
-	unsigned int led_pin;
-	unsigned int clk_regshift;
+	struct device_node *device_node;
 	unsigned int __iomem *va_MODER;
 	unsigned int __iomem *va_OTYPER;
 	unsigned int __iomem *va_OSPEEDR;
 	unsigned int __iomem *va_PUPDR;
 	unsigned int __iomem *va_BSRR;
 
+	unsigned int led_pin;
 	struct cdev led_cdev;
 
 };
-
+struct device_node *rgb_led_device_node;
 static dev_t devno;
 struct class *myled_class;
-unsigned int __iomem *va_clkaddr;
+static void  __iomem *va_clkaddr;
 
 static int led_open(struct inode *inode, struct file *filp)
 {
 	unsigned val = 0;
 	struct led_data *cdev = (struct led_data*)container_of(inode->i_cdev, struct led_data, led_cdev);
-	printk("[ led ] open pin %d\n", cdev->led_pin);
 	val |= (0x43);
 	iowrite32(val, va_clkaddr);
 
@@ -104,44 +104,37 @@ static struct file_operations led_chrdev_fops = {
 
 static int led_pdrv_probe(struct platform_device *pdev)
 {
+
 	struct led_data *cur_led;
-	unsigned int *led_hwinfo;
-
-	struct resource *mem_MODER;
-	struct resource *mem_OTYPER;
-	struct resource *mem_OSPEEDR;
-	struct resource *mem_PUPDR;
-	struct resource *mem_BSRR;
-	struct resource *mem_CLK;
-
 	dev_t cur_dev;
-	printk("led platform driver probe\n");
+
 	cur_led = devm_kzalloc(&pdev->dev, sizeof(struct led_data), GFP_KERNEL);
 	if (!cur_led)
 		return -ENOMEM;
 
-	led_hwinfo = devm_kzalloc(&pdev->dev, sizeof(unsigned int)*2, GFP_KERNEL);
-	if (!led_hwinfo)
-		return -ENOMEM; //need to free cur_led
+	printk("led platform driver probe\n");
+	rgb_led_device_node = of_find_node_by_path("/rgb_led");
+	if (rgb_led_device_node == NULL)
+	{
+		printk("[ rgb ] get rgb node failed \n");
+		return -1;
+	}
 
-	led_hwinfo = dev_get_platdata(&pdev->dev);
+	cur_led->device_node = of_find_node_by_name(rgb_led_device_node, "rgb_led_red");
+	 if (cur_led->device_node == NULL)
+	 {
+	 	printk("[ rgb ] get red node failed\n");
+	 	return -1;
+	 }
 
-	cur_led->led_pin = led_hwinfo[0];
-	cur_led->clk_regshift = led_hwinfo[1];
+	 cur_led->va_MODER = of_iomap(cur_led->device_node, 0);
+	 cur_led->va_OTYPER = of_iomap(cur_led->device_node, 1);
+	 cur_led->va_OSPEEDR = of_iomap(cur_led->device_node, 2);
+	 cur_led->va_PUPDR = of_iomap(cur_led->device_node, 3);
+	 cur_led->va_BSRR = of_iomap(cur_led->device_node, 4);
+	 cur_led->led_pin = 13;
+	 va_clkaddr = of_iomap(cur_led->device_node, 5);
 
-	mem_MODER = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-	mem_OTYPER = platform_get_resource(pdev, IORESOURCE_MEM, 1);
-	mem_OSPEEDR = platform_get_resource(pdev, IORESOURCE_MEM, 2);
-	mem_PUPDR = platform_get_resource(pdev, IORESOURCE_MEM, 3);
-	mem_BSRR = platform_get_resource(pdev, IORESOURCE_MEM, 4);
-	mem_CLK = platform_get_resource(pdev, IORESOURCE_MEM, 5);
-
-	cur_led->va_MODER = devm_ioremap(&pdev->dev, mem_MODER->start, resource_size(mem_MODER));
-	cur_led->va_OTYPER = devm_ioremap(&pdev->dev, mem_OTYPER->start, resource_size(mem_OTYPER));
-	cur_led->va_OSPEEDR = devm_ioremap(&pdev->dev, mem_OSPEEDR->start, resource_size(mem_OSPEEDR));
-	cur_led->va_PUPDR = devm_ioremap(&pdev->dev, mem_PUPDR->start, resource_size(mem_PUPDR));
-	cur_led->va_BSRR = devm_ioremap(&pdev->dev, mem_BSRR->start, resource_size(mem_BSRR));
-	va_clkaddr = devm_ioremap(&pdev->dev, mem_CLK->start, resource_size(mem_CLK));
 
 	alloc_chrdev_region(&devno, 0, 1, "led_dev");
 	cdev_init(&cur_led->led_cdev, &led_chrdev_fops);
@@ -171,13 +164,15 @@ static int led_pdrv_remove( struct platform_device *pdev)
 static struct platform_driver led_pdrv = {
 	.probe = led_pdrv_probe,
 	.remove = led_pdrv_remove,
-	.driver.name = "led_pdev",
-	.id_table = led_pdev_ids,
+	.driver = {
+		.name = "rgb_led_platform",
+		.owner = THIS_MODULE,
+		.of_match_table = rgb_led,
+	}
 };
 
 static __init int led_pdrv_init(void)
 {
-	myled_class = class_create(THIS_MODULE, "my_leds");
 	platform_driver_register(&led_pdrv);
 	return 0;
 }
