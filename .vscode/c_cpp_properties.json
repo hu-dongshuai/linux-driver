@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "/home/hds/myfile/fire_linux/kernel_4.19/arch/arm/include",
+                "/home/hds/myfile/fire_linux/kernel_4.19/include",
+                "/home/hds/myfile/fire_linux/kernel_4.19/arch/arm/include/generated",
+                "/home/hds/myfile/fire_linux/kernel_4.19/include/linux"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
