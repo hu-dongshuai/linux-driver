@@ -1,1 +1,0 @@
-cmd_/home/hds/myfile/fire_linux/linux-driver/oled/oled.ko := arm-linux-ld -r  -EL -T ./scripts/module-common.lds -T ./arch/arm/kernel/module.lds  --build-id  -o /home/hds/myfile/fire_linux/linux-driver/oled/oled.ko /home/hds/myfile/fire_linux/linux-driver/oled/oled.o /home/hds/myfile/fire_linux/linux-driver/oled/oled.mod.o ;  true

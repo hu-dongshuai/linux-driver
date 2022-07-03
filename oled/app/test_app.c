@@ -130,6 +130,7 @@ int oled_fill(int fd, u8 start_x, u8 start_y, u8 end_x, u8 end_y, u8 data)
 *high, 字符高度
 *data,字符数据地址
 */
+oled_show_one_letter(fd, x, y, 6, 8, F6x8[value]);
 int oled_show_one_letter(int fd, u8 x, u8 y, u8 width, u8 high, u8 *data)
 {
     struct oled_display_struct *display_struct = NULL;

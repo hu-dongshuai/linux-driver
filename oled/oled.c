@@ -66,220 +66,150 @@ u8 oled_init_data[] = {
 
 };
 static dev_t devno;
-
-static int oled_send_one_u8(struct oled_dev *cdev, u8 data);
-static int oled_send_command(struct oled_dev *cdev, u8 command);
-void oled_fill(struct oled_dev *cdev, unsigned char bmp_dat);
-static int oled_send_data(struct oled_dev *cdev, u8 *data, u16 lenght);
-
-static int oled_send_one_u8(struct oled_dev *cdev, u8 data)
+static int oled_read(struct  oled_dev *dev, u8 reg, void *buf, int len)
 {
-	int error = 0;
-	u8 tx_data = data;
-	struct spi_message *message;   //定义发送的消息
-	struct spi_transfer *transfer; //定义传输结构体
-
-	/*设置 D/C引脚为高电平*/
-	gpio_direction_output(cdev->dc_pin, 1);
-
-	/*申请空间*/
-	message = kzalloc(sizeof(struct spi_message), GFP_KERNEL);
-	transfer = kzalloc(sizeof(struct spi_transfer), GFP_KERNEL);
-
-	/*填充message和transfer结构体*/
-	transfer->tx_buf = &tx_data;
-	transfer->len = 1;
-	spi_message_init(message);
-	spi_message_add_tail(transfer, message);
-
-	error = spi_sync(cdev->spi, message);
-	kfree(message);
-	kfree(transfer);
-	if (error != 0)
+	int ret = -1;
+	unsigned char txdata[1];
+	unsigned char *rxdata;
+	struct spi_message m;
+	struct spi_transfer *t;
+	struct spi_device *spi = dev->spi;
+	t = kzalloc(sizeof(struct spi_transfer), GFP_KERNEL);
+	if (!t)
+		return -ENOMEM;
+	
+	rxdata = kzalloc(sizeof(char)*len, GFP_KERNEL);
+	if (!rxdata)
+		goto out1;
+	txdata[0] = reg | 0x80;
+	//t->tx_buf = txdata;
+	t->rx_buf = rxdata;
+	t->len = len + 1; //发送长度+读取长度
+	spi_message_init(&m);
+	spi_message_add_tail(t, &m);
+	ret = spi_sync(spi, &m);
+	if (ret)
 	{
-		printk("spi_sync error! \n");
-		return -1;
+		printk("[ oled ] Failed to read \n");
+		goto out2;
 	}
+
+	memcpy(buf, rxdata+1, len);
+	kfree(rxdata);
+	kfree(t);
 	return 0;
-}
-
-
-static int oled_send_command(struct oled_dev *cdev, u8 command)
-{
-	int ret = 0;
-	u8 tx_data = command;
-	struct spi_message *message;
-	struct spi_transfer *transfer;
-
-	message = kzalloc(sizeof(struct spi_message), GFP_KERNEL);
-	transfer = kzalloc(sizeof(struct spi_transfer), GFP_KERNEL);
-
-	gpio_direction_output(cdev->dc_pin, 0);
-	transfer->tx_buf = &tx_data;
-	transfer->len = 1;
-	spi_message_init(message);
-	spi_message_add_tail(transfer, message);
-	ret = spi_sync(cdev->spi, message);
-	kfree(message);
-	kfree(transfer);
-	gpio_direction_output(cdev->dc_pin, 1);
-	if(ret < 0)
-	{
-		printk("[ oled ] spin_sync error\n");
-		return -1;
-	}
-
+out2:
+	kfree(rxdata);
+out1:
+	kfree(t);
 	return ret;
 }
-void oled_fill(struct oled_dev *cdev, unsigned char bmp_dat)
+static int oled_write(struct  oled_dev *dev, u8 reg, int len)
 {
-	u8 y, x;
-	for (y = 0; y < 8; y++)
+	int ret = -1;
+	unsigned char *txdata;
+	struct spi_message m;
+	struct spi_transfer *t;
+	struct spi_device *spi = dev->spi;
+	t = kzalloc(sizeof(struct spi_transfer), GFP_KERNEL);
+	if (!t)
+		return -ENOMEM;
+	
+	txdata = kzalloc(sizeof(char)*len, GFP_KERNEL);
+	if (!txdata)
+		goto out1;
+	*txdata = reg;// & ~0x80;
+	t->tx_buf = txdata;
+
+	t->len = len;
+	spi_message_init(&m);
+	spi_message_add_tail(t, &m);
+	ret = spi_sync(spi, &m);
+	if (ret)
 	{
-		oled_send_command(cdev, 0xb0 + y);
-		oled_send_command(cdev, 0x01);
-		oled_send_command(cdev, 0x10);
-		// msleep(100);
-		for (x = 0; x < 128; x++)
-		{
-			oled_send_one_u8(cdev, bmp_dat);
-		}
+		printk("[ oled ] Failed to write \n");
+		goto out2;
 	}
-}
-static int oled_send_data(struct oled_dev *cdev, u8 *data, u16 lenght)
-{
-	int error = 0;
-	int index = 0;
-	struct spi_message *message;   //定义发送的消息
-	struct spi_transfer *transfer; //定义传输结构体
-
-	/*设置 D/C引脚为高电平*/
-	gpio_direction_output(cdev->dc_pin, 1);
-
-	/*申请空间*/
-	message = kzalloc(sizeof(struct spi_message), GFP_KERNEL);
-	transfer = kzalloc(sizeof(struct spi_transfer), GFP_KERNEL);
-
-	/*每次发送 30字节，循环发送*/
-	do
-	{
-		if (lenght > 30)
-		{
-			transfer->tx_buf = data + index;
-			transfer->len = 30;
-			spi_message_init(message);
-			spi_message_add_tail(transfer, message);
-			index += 30;
-			lenght -= 30;
-		}
-		else
-		{
-			transfer->tx_buf = data + index;
-			transfer->len = lenght;
-			spi_message_init(message);
-			spi_message_add_tail(transfer, message);
-			index += lenght;
-			lenght = 0;
-		}
-		error = spi_sync(cdev->spi, message);
-		if (error != 0)
-		{
-			printk("spi_sync error! %d \n", error);
-			return -1;
-		}
-
-	} while (lenght > 0);
-
-	kfree(message);
-	kfree(transfer);
-
+	kfree(txdata);
+	kfree(t);
 	return 0;
+out2:
+	kfree(txdata);
+out1:
+	kfree(t);
+	return ret;
 }
-static int oled_display_buffer(struct oled_dev *cdev, u8 *display_buffer, u8 x, u8 y, u16 length)
-{
-	u16 index = 0;
-	int error = 0;
-
-	do
-	{
-		/*设置写入的起始坐标*/
-		error += oled_send_command(cdev, 0x2a);
-		error += oled_send_command(cdev, 0x00);
-		error += oled_send_command(cdev, 0x00);
-
-		error += oled_send_command(cdev, 0x00);
-		error += oled_send_command(cdev, x+0xf0);
-		
-		error += oled_send_command(cdev, 0x2B);
-		error += oled_send_command(cdev, 0x00);
-		error += oled_send_command(cdev, 0x00);
-		error += oled_send_command(cdev, 0x00);
-		error += oled_send_command(cdev, 0x00+0xf0);
-		error += oled_send_command(cdev, 0x2c);
-
-		error += oled_send_command(cdev, 0xff);
-		error += oled_send_command(cdev, 0xff);
-
-		//for (index=0; index < 5; index++)
-		//{
-			error += oled_send_command(cdev, 0x00);	
-			error += oled_send_command(cdev, 0x1f);
-			//mdelay(20);
-		//}
-		if (length > (X_WIDTH - x))
-		{
-		//	error += oled_send_data(cdev, display_buffer + index, X_WIDTH - x);
-			length -= (X_WIDTH - x);
-			index += (X_WIDTH - x);
-			x = 0;
-			y++;
-		}
-		else
-		{
-		//	error += oled_send_data(cdev, display_buffer + index, length);
-			index += length;
-			// x += length;
-			length = 0;
-		}
-
-	} while (length > 0);
-
-	if (error != 0)
-	{
-		/*发送错误*/
-		printk("oled_display_buffer error! %d \n",error);
-		return -1;
-	}
-	return index;
-}
-
 static int write(struct file *filp, const char __user *buf, size_t cnt, loff_t *off)
 {
 	int ret;
 	struct oled_display *data;
-	struct oled_dev *cdev = (struct oled_dev *)filp->private_data;
+	//struct oled_dev *cdev = (struct oled_dev *)filp->private_data;
 	data = (struct oled_display*)kzalloc(cnt, GFP_KERNEL);
 	ret = copy_from_user(data, buf,cnt);
 
-	oled_display_buffer(cdev,data->buf, data->x, data->y, data->length);
 	kfree(data);
+	return 0;
+}
+
+static int oled_write_reg_data(struct oled_dev *dev, u8 reg, u8 *data, int size)
+{
+	int i;
+	gpio_direction_output(dev->dc_pin, 0);
+	oled_write(dev, reg, 1);//write reg
+	gpio_direction_output(dev->dc_pin, 1);
+	for (i=0; i<size ;i++)
+		oled_write(dev, data[i] , 1);//write data
+
+	return 0;
+}
+static int oled_write_data(struct oled_dev *dev)
+{
+	int i;
+	u8 data[4];
+	for (i=0; i < (sizeof(oled_init_data)-1)/4; i++)
+	{
+		gpio_direction_output(dev->dc_pin, 0);
+		oled_write(dev, oled_init_data[i], 1);//write reg
+		gpio_direction_output(dev->dc_pin, 1);
+		oled_write(dev, oled_init_data[i+1], 1);//write data
+		oled_write(dev, oled_init_data[i+2], 1);//write data
+		oled_write(dev, oled_init_data[i+3], 1);//write data
+	}
+	mdelay(120);
+	oled_write(dev, oled_init_data[sizeof(oled_init_data)-1],1);
+
+	data[0] = 0x00; data[1] = 0x00;data[2] = 320>>8; data[3] = 320 & 0xff; 
+	oled_write_reg_data(dev, 0x2a, data, 4);
+	data[0] = 0x00; data[1] = 0x00 ;data[2] = 240>>8; data[3] = 240 & 0xff; 
+	oled_write_reg_data(dev, 0x2b, data, 4);//设置
+	
+	gpio_direction_output(dev->dc_pin, 0);
+	oled_write(dev, 0x2c, 1);//write reg
+	gpio_direction_output(dev->dc_pin, 1);
+	for (i=0; i<320*240; i++)
+	{
+		oled_write(dev, 0x1f>>8, 1);//write data
+		oled_write(dev, 0x1f, 1);//write data
+	}
+	
+
+	return 0;
+}
+static int read(struct file *filp, char __user *buf, size_t cnt, loff_t *off)
+{
+	int ret;
+	struct oled_dev *dev = (struct oled_dev*)filp->private_data;
+
+	ret = oled_write_data(dev);
+
+	if (ret < 0)
+		printk("[ oled ] Fail to write \n");
 	return 0;
 }
 static int open(struct inode *inode, struct file *filp)
 {
-	int i;
 	struct oled_dev *cdev = (struct oled_dev*)container_of(inode->i_cdev, struct oled_dev, cdev);
 	filp->private_data = cdev;
-	for (i=0; i<sizeof(oled_init_data); i++)
-	{
-		
-		if (i == sizeof(oled_init_data)-1)
-		{
-			mdelay(120);
-		}
-		oled_send_command(cdev, oled_init_data[i]);
-	}
-	//oled_fill(cdev, 0x00);
 	return 0;
 }
 
@@ -294,6 +224,7 @@ static struct file_operations oled_chrdev_fops = {
 	.open = open,
 	.release = close,
 	.write = write,
+	.read = read,
 };
 
 static int pdrv_probe(struct spi_device *spi)
@@ -343,6 +274,7 @@ static int pdrv_probe(struct spi_device *spi)
 	/* spi init */
 	oled->oled_node = of_find_node_by_path("/soc/spi@44009000/spi_oled@0");
 	oled->dc_pin = of_get_named_gpio(oled->oled_node, "d_c_control_pin", 0);
+	gpio_request(oled->dc_pin, "dc_pin");
 	gpio_direction_output(oled->dc_pin, 1);
 	oled->spi = spi;
 	oled->spi->max_speed_hz = 2000000;
@@ -372,6 +304,7 @@ static int pdrv_remove( struct spi_device *spi)
 	class_destroy(oled->class);
 	cdev_del(&oled->cdev);
 	unregister_chrdev_region(cur_dev, 1);
+	gpio_free(oled->dc_pin);
 	return 0;
 }
 
