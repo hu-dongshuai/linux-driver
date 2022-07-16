@@ -18,11 +18,13 @@
 #include <asm/uaccess.h>
 #include <asm/io.h>
 #include <linux/poll.h>
+#include <linux/input.h>
 
 #define KEY_CNT 1
 struct key_dev {
 	dev_t devid;
 	struct cdev cdev;
+	struct input_dev *idev;
 	struct class *class;
 	struct device *device;
 	struct device_node *nd;
@@ -41,30 +43,37 @@ enum key_status {
 static struct key_dev key;
 static irqreturn_t key_interrupt(int irq, void *dev_id)
 {
+	disable_irq_nosync(irq); 
 	mod_timer(&key.timer, jiffies + msecs_to_jiffies(15));
+	//printk("irq %d\n", irq);
+	
 	return 0;
 }
 static void key_timer_function(struct timer_list *arg)
 {
-	static int last_val = 1;
+	//static int last_val = 1;
 	int current_val;
 
 	current_val = gpio_get_value(key.key_gpio);
 	
-	if (1 == current_val && last_val)
-	{
-		atomic_set(&key.status, KEY_PRESS);
-		wake_up_interruptible(&key.r_wait);
-	}
-	else if(0 == current_val && !last_val)
-	{
-		atomic_set(&key.status, KEY_RELEASE);
-		wake_up_interruptible(&key.r_wait);
-	}
-	else 
-		atomic_set(&key.status, KEY_KEEP);
+// 	if (1 == current_val && last_val)
+// 	{
+		//atomic_set(&key.status, KEY_PRESS);
+		input_report_key(key.idev, KEY_1, !current_val);
+		input_sync(key.idev);
+	// 	printk("irq %d\n", key.irq_num);
+	// 	wake_up_interruptible(&key.r_wait);
+	// }
+	// else if(0 == current_val && !last_val)
+	// {
+	// 	atomic_set(&key.status, KEY_RELEASE);
+	// 	wake_up_interruptible(&key.r_wait);
+	// }
+	// else 
+	// 	atomic_set(&key.status, KEY_KEEP);
+	enable_irq(key.irq_num);
 	
-	last_val = current_val;
+	///last_val = current_val;
 }
 static int key_parse_dt(void)
 {
@@ -198,7 +207,12 @@ static __init int pdrv_init(void)
 	if (ret)
 		return ret;
 
+	key.idev = input_allocate_device();
+	key.idev->name = "KEY_INPUT";
+	key.idev->evbit[0] = BIT_MASK(EV_KEY) | BIT_MASK(EV_REP);
+	input_set_capability(key.idev, EV_KEY, KEY_1);
 
+	input_register_device(key.idev);
 	ret = alloc_chrdev_region(&key.devid, 0, KEY_CNT, "key2");
 	if (ret < 0)
 	{
@@ -250,6 +264,7 @@ static __exit void pdrv_exit(void)
 	class_destroy(key.class);
 	free_irq(key.irq_num, &key.devid);
 	gpio_free(key.key_gpio);
+	input_unregister_device(key.idev);
 }
 module_init(pdrv_init);
 module_exit(pdrv_exit);

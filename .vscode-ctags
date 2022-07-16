@@ -1,0 +1,567 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	//
+ACCEL_CONFIG	mpu/i2c_mpu6050.h	/^#define ACCEL_CONFIG /;"	d
+ACCEL_XOUT_H	mpu/i2c_mpu6050.h	/^#define ACCEL_XOUT_H /;"	d
+ACCEL_XOUT_L	mpu/i2c_mpu6050.h	/^#define ACCEL_XOUT_L /;"	d
+ACCEL_YOUT_H	mpu/i2c_mpu6050.h	/^#define ACCEL_YOUT_H /;"	d
+ACCEL_YOUT_L	mpu/i2c_mpu6050.h	/^#define ACCEL_YOUT_L /;"	d
+ACCEL_ZOUT_H	mpu/i2c_mpu6050.h	/^#define ACCEL_ZOUT_H /;"	d
+ACCEL_ZOUT_L	mpu/i2c_mpu6050.h	/^#define ACCEL_ZOUT_L /;"	d
+AHB4	rgb/platform_dev.c	/^#define AHB4 /;"	d	file:
+AHB4	rgb/rgb.c	/^#define AHB4 /;"	d	file:
+ARCH	bus/Makefile	/^ARCH=arm$/;"	m
+ARCH	char/Makefile	/^ARCH=arm$/;"	m
+ARCH	device_tree/Makefile	/^ARCH=arm$/;"	m
+ARCH	export_symbol/Makefile	/^ARCH=arm$/;"	m
+ARCH	interrupt/Makefile	/^ARCH=arm$/;"	m
+ARCH	mpu/Makefile	/^ARCH=arm$/;"	m
+ARCH	network/Makefile	/^ARCH=arm$/;"	m
+ARCH	oled/Makefile	/^ARCH=arm$/;"	m
+ARCH	rgb/Makefile	/^ARCH=arm$/;"	m
+Address	mpu/i2c_mpu6050.h	/^#define Address /;"	d
+BMP1	oled/app/oled_code_table.c	/^unsigned char BMP1[] =$/;"	v	typeref:typename:unsigned char[]
+CONFIG	mpu/i2c_mpu6050.h	/^#define CONFIG /;"	d
+CROSS_COMPILE	bus/Makefile	/^CROSS_COMPILE=arm-linux-$/;"	m
+CROSS_COMPILE	char/Makefile	/^CROSS_COMPILE=arm-linux-$/;"	m
+CROSS_COMPILE	device_tree/Makefile	/^CROSS_COMPILE=arm-linux-$/;"	m
+CROSS_COMPILE	export_symbol/Makefile	/^CROSS_COMPILE=arm-linux-$/;"	m
+CROSS_COMPILE	interrupt/Makefile	/^CROSS_COMPILE=arm-linux-$/;"	m
+CROSS_COMPILE	mpu/Makefile	/^CROSS_COMPILE=arm-linux-$/;"	m
+CROSS_COMPILE	network/Makefile	/^CROSS_COMPILE=arm-linux-gnueabi-$/;"	m
+CROSS_COMPILE	oled/Makefile	/^CROSS_COMPILE=arm-linux-$/;"	m
+CROSS_COMPILE	rgb/Makefile	/^CROSS_COMPILE=arm-linux-$/;"	m
+CURDIR	bus/Makefile	/^CURDIR := $(shell pwd)$/;"	m
+CURDIR	char/Makefile	/^CURDIR := $(shell pwd)$/;"	m
+CURDIR	device_tree/Makefile	/^CURDIR := $(shell pwd)$/;"	m
+CURDIR	export_symbol/Makefile	/^CURDIR := $(shell pwd)$/;"	m
+CURDIR	interrupt/Makefile	/^CURDIR := $(shell pwd)$/;"	m
+CURDIR	mpu/Makefile	/^CURDIR := $(shell pwd)$/;"	m
+CURDIR	network/Makefile	/^CURDIR := $(shell pwd)$/;"	m
+CURDIR	oled/Makefile	/^CURDIR := $(shell pwd)$/;"	m
+CURDIR	rgb/Makefile	/^CURDIR := $(shell pwd)$/;"	m
+DEVNUM	block/test.c	/^#define DEVNUM(/;"	d	file:
+DEV_CNT	device_tree/get_dts_info.c	/^#define DEV_CNT /;"	d	file:
+DEV_CNT	mpu/i2c_mpu6050.c	/^#define DEV_CNT /;"	d	file:
+DEV_NAME	device_tree/get_dts_info.c	/^#define DEV_NAME /;"	d	file:
+DEV_NAME	mpu/i2c_mpu6050.c	/^#define DEV_NAME /;"	d	file:
+Devices	block/test.c	/^struct vmem_disk_dev *Devices = NULL;$/;"	v	typeref:struct:vmem_disk_dev *
+F16x16	oled/app/oled_code_table.c	/^unsigned char F16x16[] =$/;"	v	typeref:typename:unsigned char[]
+F6x8	oled/app/oled_code_table.c	/^unsigned char F6x8[][6] =$/;"	v	typeref:typename:unsigned char[][6]
+F8x16	oled/app/oled_code_table.c	/^unsigned char F8x16[][16]=	  $/;"	v	typeref:typename:unsigned char[][16]
+GLOBALMEM_MAJOR	char/global.c	/^#define GLOBALMEM_MAJOR /;"	d	file:
+GLOBALMEM_SIZE	char/global.c	/^#define GLOBALMEM_SIZE /;"	d	file:
+GPIOA	rgb/platform_dev.c	/^#define GPIOA /;"	d	file:
+GPIOA	rgb/rgb.c	/^#define GPIOA /;"	d	file:
+GPIOA_OUTPUT_DATA	rgb/platform_dev.c	/^#define GPIOA_OUTPUT_DATA /;"	d	file:
+GPIOA_OUTPUT_DATA	rgb/rgb.c	/^#define GPIOA_OUTPUT_DATA /;"	d	file:
+GPIOA_OUTPUT_SPEED	rgb/platform_dev.c	/^#define GPIOA_OUTPUT_SPEED /;"	d	file:
+GPIOA_OUTPUT_SPEED	rgb/rgb.c	/^#define GPIOA_OUTPUT_SPEED /;"	d	file:
+GPIOA_OUTPUT_TYPE	rgb/platform_dev.c	/^#define GPIOA_OUTPUT_TYPE /;"	d	file:
+GPIOA_OUTPUT_TYPE	rgb/rgb.c	/^#define GPIOA_OUTPUT_TYPE /;"	d	file:
+GPIOA_PORT_MOD	rgb/platform_dev.c	/^#define GPIOA_PORT_MOD /;"	d	file:
+GPIOA_PORT_MOD	rgb/rgb.c	/^#define GPIOA_PORT_MOD /;"	d	file:
+GPIOA_PORT_SET_RESET	rgb/platform_dev.c	/^#define GPIOA_PORT_SET_RESET /;"	d	file:
+GPIOA_PORT_SET_RESET	rgb/rgb.c	/^#define GPIOA_PORT_SET_RESET /;"	d	file:
+GPIOA_PULL_UP_DOWN	rgb/platform_dev.c	/^#define GPIOA_PULL_UP_DOWN /;"	d	file:
+GPIOA_PULL_UP_DOWN	rgb/rgb.c	/^#define GPIOA_PULL_UP_DOWN /;"	d	file:
+GPOIA_INPUT_DATA	rgb/platform_dev.c	/^#define GPOIA_INPUT_DATA /;"	d	file:
+GPOIA_INPUT_DATA	rgb/rgb.c	/^#define GPOIA_INPUT_DATA /;"	d	file:
+GYRO_CONFIG	mpu/i2c_mpu6050.h	/^#define GYRO_CONFIG /;"	d
+GYRO_XOUT_H	mpu/i2c_mpu6050.h	/^#define GYRO_XOUT_H /;"	d
+GYRO_XOUT_L	mpu/i2c_mpu6050.h	/^#define GYRO_XOUT_L /;"	d
+GYRO_YOUT_H	mpu/i2c_mpu6050.h	/^#define GYRO_YOUT_H /;"	d
+GYRO_YOUT_L	mpu/i2c_mpu6050.h	/^#define GYRO_YOUT_L /;"	d
+GYRO_ZOUT_H	mpu/i2c_mpu6050.h	/^#define GYRO_ZOUT_H /;"	d
+GYRO_ZOUT_L	mpu/i2c_mpu6050.h	/^#define GYRO_ZOUT_L /;"	d
+I2C_BUS_MODE	mpu/i2c_mpu6050.h	/^#define I2C_BUS_MODE /;"	d
+I2C_MPU6050_H	mpu/i2c_mpu6050.h	/^#define I2C_MPU6050_H$/;"	d
+I2C_RETRIES	mpu/i2c_mpu6050.h	/^#define I2C_RETRIES /;"	d
+I2C_SLAVE	mpu/i2c_mpu6050.h	/^#define I2C_SLAVE /;"	d
+I2C_TIMEOUT	mpu/i2c_mpu6050.h	/^#define I2C_TIMEOUT /;"	d
+INVALIDATE_DELAY	block/test.c	/^#define INVALIDATE_DELAY /;"	d	file:
+KERNEL_DIR	bus/Makefile	/^KERNEL_DIR := \/home\/hds\/myfile\/fire_linux\/kernel_4.19$/;"	m
+KERNEL_DIR	char/Makefile	/^KERNEL_DIR := \/home\/hds\/myfile\/fire_linux\/kernel_4.19$/;"	m
+KERNEL_DIR	device_tree/Makefile	/^KERNEL_DIR := \/home\/hds\/myfile\/fire_linux\/kernel_4.19$/;"	m
+KERNEL_DIR	export_symbol/Makefile	/^KERNEL_DIR := \/home\/hds\/myfile\/fire_linux\/kernel_4.19$/;"	m
+KERNEL_DIR	interrupt/Makefile	/^KERNEL_DIR := \/home\/hds\/myfile\/fire_linux\/kernel_4.19$/;"	m
+KERNEL_DIR	mpu/Makefile	/^KERNEL_DIR := \/home\/hds\/myfile\/fire_linux\/kernel_4.19$/;"	m
+KERNEL_DIR	network/Makefile	/^KERNEL_DIR := \/lib\/modules\/$(KVERS)\/build$/;"	m
+KERNEL_DIR	oled/Makefile	/^KERNEL_DIR := \/home\/hds\/myfile\/fire_linux\/kernel_4.19$/;"	m
+KERNEL_DIR	rgb/Makefile	/^KERNEL_DIR := \/home\/hds\/myfile\/fire_linux\/kernel_4.19$/;"	m
+KERNEL_DIR_ARM	network/Makefile	/^KERNEL_DIR_ARM := \/home\/h\/linux\/kernel\/4.14$/;"	m
+KERNEL_DIR_X86_517	network/Makefile	/^KERNEL_DIR_X86_517 := \/home\/h\/linux\/kernel\/5.17$/;"	m
+KERNEL_SECTOR_SIZE	block/test.c	/^#define KERNEL_SECTOR_SIZE /;"	d	file:
+KEY_CNT	interrupt/key2.c	/^#define KEY_CNT /;"	d	file:
+KEY_KEEP	interrupt/key2.c	/^	KEY_KEEP,$/;"	e	enum:key_status	file:
+KEY_PRESS	interrupt/key2.c	/^	KEY_PRESS = 0,$/;"	e	enum:key_status	file:
+KEY_RELEASE	interrupt/key2.c	/^	KEY_RELEASE,$/;"	e	enum:key_status	file:
+KVERS	bus/Makefile	/^KVERS = $(shell uname -r)$/;"	m
+KVERS	char/Makefile	/^KVERS = $(shell uname -r)$/;"	m
+KVERS	device_tree/Makefile	/^KVERS = $(shell uname -r)$/;"	m
+KVERS	export_symbol/Makefile	/^KVERS = $(shell uname -r)$/;"	m
+KVERS	interrupt/Makefile	/^KVERS = $(shell uname -r)$/;"	m
+KVERS	mpu/Makefile	/^KVERS = $(shell uname -r)$/;"	m
+KVERS	network/Makefile	/^KVERS = $(shell uname -r)$/;"	m
+KVERS	oled/Makefile	/^KVERS = $(shell uname -r)$/;"	m
+KVERS	rgb/Makefile	/^KVERS = $(shell uname -r)$/;"	m
+MEM_CLEAR	char/global.c	/^#define MEM_CLEAR /;"	d	file:
+MINOR_SHIFT	block/test.c	/^#define MINOR_SHIFT /;"	d	file:
+PWR_MGMT_1	mpu/i2c_mpu6050.h	/^#define PWR_MGMT_1 /;"	d
+RCC_OCENSETR	rgb/platform_dev.c	/^#define RCC_OCENSETR /;"	d	file:
+RCC_OCENSETR	rgb/rgb.c	/^#define RCC_OCENSETR /;"	d	file:
+RM_FULL	block/test.c	/^	RM_FULL = 1,$/;"	e	enum:__anon1d0dd4700103	file:
+RM_NOQUEUE	block/test.c	/^	RM_NOQUEUE = 2,$/;"	e	enum:__anon1d0dd4700103	file:
+RM_SIMPLE	block/test.c	/^	RM_SIMPLE = 0,$/;"	e	enum:__anon1d0dd4700103	file:
+SECND_MAJOR	char/secnd.c	/^#define SECND_MAJOR /;"	d	file:
+SMPLRT_DIV	mpu/i2c_mpu6050.h	/^#define SMPLRT_DIV /;"	d
+SlaveAddress	mpu/i2c_mpu6050.h	/^#define SlaveAddress /;"	d
+TEMP_OUT_H	mpu/i2c_mpu6050.h	/^#define TEMP_OUT_H /;"	d
+TEMP_OUT_L	mpu/i2c_mpu6050.h	/^#define TEMP_OUT_L /;"	d
+TEST_APP_H	oled/app/test_app.h	/^#define TEST_APP_H$/;"	d
+TEST_MAJOR	char/test.c	/^#define TEST_MAJOR /;"	d	file:
+TEST_SIZE	char/test.c	/^#define TEST_SIZE /;"	d	file:
+WHO_AM_I	mpu/i2c_mpu6050.h	/^#define WHO_AM_I /;"	d
+X_WIDTH	oled/app/test_app.h	/^#define X_WIDTH /;"	d
+X_WIDTH	oled/oled.c	/^#define X_WIDTH /;"	d	file:
+Y_WIDTH	oled/app/test_app.h	/^#define Y_WIDTH /;"	d
+Y_WIDTH	oled/oled.c	/^#define Y_WIDTH /;"	d	file:
+__CACULATION_H__	export_symbol/caculation.h	/^#define __CACULATION_H__$/;"	d
+____versions	bus/xdrv.mod.c	/^static const struct modversion_info ____versions[]$/;"	v	typeref:typename:const struct modversion_info[]__used	file:
+____versions	export_symbol/caculation.mod.c	/^static const struct modversion_info ____versions[]$/;"	v	typeref:typename:const struct modversion_info[]__used	file:
+____versions	export_symbol/hello.mod.c	/^static const struct modversion_info ____versions[]$/;"	v	typeref:typename:const struct modversion_info[]__used	file:
+____versions	mpu/i2c_mpu6050.mod.c	/^static const struct modversion_info ____versions[]$/;"	v	typeref:typename:const struct modversion_info[]__used	file:
+____versions	mpu/mpu.mod.c	/^static const struct modversion_info ____versions[]$/;"	v	typeref:typename:const struct modversion_info[]__used	file:
+____versions	oled/oled.mod.c	/^static const struct modversion_info ____versions[]$/;"	v	typeref:typename:const struct modversion_info[]__used	file:
+__anon1d0dd4700103	block/test.c	/^enum{$/;"	g	file:
+__module_depends	bus/xdrv.mod.c	/^static const char __module_depends[]$/;"	v	typeref:typename:const char[]__used	file:
+__module_depends	export_symbol/caculation.mod.c	/^static const char __module_depends[]$/;"	v	typeref:typename:const char[]__used	file:
+__module_depends	export_symbol/hello.mod.c	/^static const char __module_depends[]$/;"	v	typeref:typename:const char[]__used	file:
+__module_depends	mpu/i2c_mpu6050.mod.c	/^static const char __module_depends[]$/;"	v	typeref:typename:const char[]__used	file:
+__module_depends	mpu/mpu.mod.c	/^static const char __module_depends[]$/;"	v	typeref:typename:const char[]__used	file:
+__module_depends	oled/oled.mod.c	/^static const char __module_depends[]$/;"	v	typeref:typename:const char[]__used	file:
+__this_module	bus/xdrv.mod.c	/^__visible struct module __this_module$/;"	v	typeref:struct:module
+__this_module	export_symbol/caculation.mod.c	/^__visible struct module __this_module$/;"	v	typeref:struct:module
+__this_module	export_symbol/hello.mod.c	/^__visible struct module __this_module$/;"	v	typeref:struct:module
+__this_module	mpu/i2c_mpu6050.mod.c	/^__visible struct module __this_module$/;"	v	typeref:struct:module
+__this_module	mpu/mpu.mod.c	/^__visible struct module __this_module$/;"	v	typeref:struct:module
+__this_module	oled/oled.mod.c	/^__visible struct module __this_module$/;"	v	typeref:struct:module
+all	oled/app/makefile	/^all: test_app.c oled_code_table.c$/;"	t
+arm	network/Makefile	/^arm:arm_modules cp_modules$/;"	t
+arm_modules	network/Makefile	/^arm_modules:$/;"	t
+async_queue	char/test.c	/^	struct fasync_struct *async_queue;$/;"	m	struct:test_dev	typeref:struct:fasync_struct *	file:
+buf	oled/oled.c	/^	u8 buf[];$/;"	m	struct:oled_display	typeref:typename:u8[]	file:
+build	bus/Makefile	/^build:kernel_modules$/;"	t
+build	char/Makefile	/^build:kernel_modules cp_modules$/;"	t
+build	device_tree/Makefile	/^build:kernel_modules$/;"	t
+build	export_symbol/Makefile	/^build:kernel_modules$/;"	t
+build	interrupt/Makefile	/^build:kernel_modules$/;"	t
+build	mpu/Makefile	/^build:kernel_modules$/;"	t
+build	oled/Makefile	/^build:kernel_modules$/;"	t
+build	rgb/Makefile	/^build:kernel_modules$/;"	t
+bus_name	bus/bus.c	/^static char *bus_name = "xbus";$/;"	v	typeref:typename:char *	file:
+button_chrdev_fops	interrupt/interrupt.c	/^static struct file_operations button_chrdev_fops = {$/;"	v	typeref:struct:file_operations	file:
+button_drv	interrupt/interrupt.c	/^struct button_drv$/;"	s	file:
+button_read	interrupt/interrupt.c	/^static int button_read(struct file *filp, char __user *buf, size_t cnt, loff_t *off)$/;"	f	typeref:typename:int	file:
+can_uart_write	network/app/eth_uart_for_arm.c	/^int can_uart_write = 0;$/;"	v	typeref:typename:int
+cdev	char/global.c	/^    struct cdev cdev;$/;"	m	struct:globalmem_dev	typeref:struct:cdev	file:
+cdev	char/secnd.c	/^    struct cdev cdev;$/;"	m	struct:secnd_dev	typeref:struct:cdev	file:
+cdev	char/test.c	/^struct test_dev { struct cdev cdev;$/;"	m	struct:test_dev	typeref:struct:cdev	file:
+cdev	interrupt/interrupt.c	/^	struct cdev cdev;$/;"	m	struct:button_drv	typeref:struct:cdev	file:
+cdev	interrupt/key2.c	/^	struct cdev cdev;$/;"	m	struct:key_dev	typeref:struct:cdev	file:
+cdev	oled/oled.c	/^	struct cdev cdev;$/;"	m	struct:oled_dev	typeref:struct:cdev	file:
+class	interrupt/interrupt.c	/^	struct class *class;$/;"	m	struct:button_drv	typeref:struct:class *	file:
+class	interrupt/key2.c	/^	struct class *class;$/;"	m	struct:key_dev	typeref:struct:class *	file:
+class	mpu/mpu.c	/^	struct class *class;$/;"	m	struct:mpu_dev	typeref:struct:class *	file:
+class	oled/oled.c	/^	struct class *class;$/;"	m	struct:oled_dev	typeref:struct:class *	file:
+class_mpu6050	mpu/i2c_mpu6050.c	/^struct class *class_mpu6050;			 \/\/保存创建的类$/;"	v	typeref:struct:class *
+clean	bus/Makefile	/^clean:$/;"	t
+clean	char/Makefile	/^clean:$/;"	t
+clean	device_tree/Makefile	/^clean:$/;"	t
+clean	export_symbol/Makefile	/^clean:$/;"	t
+clean	interrupt/Makefile	/^clean:$/;"	t
+clean	mpu/Makefile	/^clean:$/;"	t
+clean	network/Makefile	/^clean:$/;"	t
+clean	oled/Makefile	/^clean:$/;"	t
+clean	oled/app/makefile	/^clean:$/;"	t
+clean	rgb/Makefile	/^clean:$/;"	t
+client	mpu/mpu.c	/^	struct i2c_client *client;$/;"	m	struct:mpu_dev	typeref:struct:i2c_client *	file:
+clk_regshift	rgb/platform_rgb.c	/^	unsigned int clk_regshift;$/;"	m	struct:led_data	typeref:typename:unsigned int	file:
+close	interrupt/interrupt.c	/^static int close(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+close	oled/oled.c	/^static int close(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+counter	char/secnd.c	/^    atomic_t counter;$/;"	m	struct:secnd_dev	typeref:typename:atomic_t	file:
+cp_modules	network/Makefile	/^cp_modules:$/;"	t
+current_len	char/global.c	/^    unsigned int current_len;$/;"	m	struct:globalmem_dev	typeref:typename:unsigned int	file:
+current_len	char/test.c	/^	int current_len;$/;"	m	struct:test_dev	typeref:typename:int	file:
+data	block/test.c	/^	u8 *data;$/;"	m	struct:vmem_disk_dev	typeref:typename:u8 *	file:
+dc_pin	oled/oled.c	/^	unsigned int dc_pin;$/;"	m	struct:oled_dev	typeref:typename:unsigned int	file:
+dev	rgb/rgb.c	/^    struct cdev dev;$/;"	m	struct:led_cdev	typeref:struct:cdev	file:
+device	interrupt/interrupt.c	/^	struct device *device;$/;"	m	struct:button_drv	typeref:struct:device *	file:
+device	interrupt/key2.c	/^	struct device *device;$/;"	m	struct:key_dev	typeref:struct:device *	file:
+device	mpu/mpu.c	/^	struct device *device;$/;"	m	struct:mpu_dev	typeref:struct:device *	file:
+device	oled/oled.c	/^	struct device *device;$/;"	m	struct:oled_dev	typeref:struct:device *	file:
+device_mpu6050	mpu/i2c_mpu6050.c	/^struct device *device_mpu6050;			 \/\/ 保存创建的设备$/;"	v	typeref:struct:device *
+device_node	device_tree/rgb.c	/^	struct device_node *device_node;$/;"	m	struct:led_data	typeref:struct:device_node *	file:
+devid	interrupt/key2.c	/^	dev_t devid;$/;"	m	struct:key_dev	typeref:typename:dev_t	file:
+devno	device_tree/pinctrl_rgb.c	/^static dev_t devno;$/;"	v	typeref:typename:dev_t	file:
+devno	device_tree/rgb.c	/^static dev_t devno;$/;"	v	typeref:typename:dev_t	file:
+devno	interrupt/interrupt.c	/^dev_t devno;$/;"	v	typeref:typename:dev_t
+devno	mpu/mpu.c	/^static dev_t devno;$/;"	v	typeref:typename:dev_t	file:
+devno	oled/oled.c	/^static dev_t devno;$/;"	v	typeref:typename:dev_t	file:
+devno	rgb/platform_rgb.c	/^static dev_t devno;$/;"	v	typeref:typename:dev_t	file:
+devno	rgb/rgb.c	/^static dev_t devno;$/;"	v	typeref:typename:dev_t	file:
+display_buffer	oled/app/test_app.h	/^	u8 display_buffer[];$/;"	m	struct:oled_display_struct	typeref:typename:u8[]
+do_tasklet	char/test.c	/^void do_tasklet(struct tasklet_struct *task)$/;"	f	typeref:typename:void
+drvname_show	bus/xdrv.c	/^ssize_t drvname_show(struct device_driver *drv, char *buf)$/;"	f	typeref:typename:ssize_t
+eth_uart_poll	network/virnet.c	/^static unsigned int  eth_uart_poll(struct file* file, struct poll_table_struct* queue)$/;"	f	typeref:typename:unsigned int	file:
+eth_uart_read	network/virnet.c	/^static ssize_t eth_uart_read(struct file* file, char* buf, size_t count, \\$/;"	f	typeref:typename:ssize_t	file:
+eth_uart_write	network/virnet.c	/^static ssize_t eth_uart_write(struct file* file, const char* buf, \\$/;"	f	typeref:typename:ssize_t	file:
+fds	network/app/eth_uart.c	/^int fds[2];$/;"	v	typeref:typename:int[2]
+fds	network/app/eth_uart_for_arm.c	/^int fds[2];$/;"	v	typeref:typename:int[2]
+gd	block/test.c	/^	struct gendisk *gd;$/;"	m	struct:vmem_disk_dev	typeref:struct:gendisk *	file:
+globalmem_dev	char/global.c	/^struct globalmem_dev {$/;"	s	file:
+globalmem_devp	char/global.c	/^struct globalmem_dev *globalmem_devp;$/;"	v	typeref:struct:globalmem_dev *
+globalmem_exit	char/global.c	/^void globalmem_exit(void)$/;"	f	typeref:typename:void
+globalmem_fops	char/global.c	/^static const struct file_operations globalmem_fops = {$/;"	v	typeref:typename:const struct file_operations	file:
+globalmem_init	char/global.c	/^static int __init globalmem_init(void)$/;"	f	typeref:typename:int __init	file:
+globalmem_major	char/global.c	/^static int globalmem_major = GLOBALMEM_MAJOR;$/;"	v	typeref:typename:int	file:
+globalmem_open	char/global.c	/^int globalmem_open(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int
+globalmem_read	char/global.c	/^static ssize_t globalmem_read(struct file *filp, char __user *buf, size_t count, loff_t *ppos)$/;"	f	typeref:typename:ssize_t	file:
+globalmem_release	char/global.c	/^int globalmem_release(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int
+globalmem_setup_cdev	char/global.c	/^static void globalmem_setup_cdev(struct globalmem_dev *dev, int index)$/;"	f	typeref:typename:void	file:
+globalmem_write	char/global.c	/^static ssize_t globalmem_write(struct file *filp, const char __user *buf, size_t count, loff_t */;"	f	typeref:typename:ssize_t	file:
+gpio	interrupt/interrupt.c	/^	unsigned int gpio;$/;"	m	struct:button_drv	typeref:typename:unsigned int	file:
+gtp_device_id	mpu/i2c_mpu6050.c	/^static const struct i2c_device_id gtp_device_id[] = {$/;"	v	typeref:typename:const struct i2c_device_id[]	file:
+handler	network/app/eth_uart.c	/^void handler(int arg)$/;"	f	typeref:typename:void
+handler	network/app/eth_uart_for_arm.c	/^void handler(int arg)$/;"	f	typeref:typename:void
+hardsect_size	block/test.c	/^static int hardsect_size = 512;$/;"	v	typeref:typename:int	file:
+hello_exit	export_symbol/hello.c	/^static void __exit hello_exit(void)$/;"	f	typeref:typename:void __exit	file:
+hello_exit	rgb/platform_dev.c	/^static void __exit hello_exit(void)$/;"	f	typeref:typename:void __exit	file:
+hello_exit	rgb/rgb.c	/^static void __exit hello_exit(void)$/;"	f	typeref:typename:void __exit	file:
+hello_init	export_symbol/hello.c	/^static int __init hello_init(void)$/;"	f	typeref:typename:int __init	file:
+hello_init	rgb/platform_dev.c	/^static int __init hello_init(void)$/;"	f	typeref:typename:int __init	file:
+hello_init	rgb/rgb.c	/^static int __init hello_init(void)$/;"	f	typeref:typename:int __init	file:
+i2c_read	mpu/mpu.c	/^static int i2c_read(struct i2c_client *client, u8 addr, void *data, u32 length)$/;"	f	typeref:typename:int	file:
+i2c_read_mpu6050	mpu/i2c_mpu6050.c	/^static int i2c_read_mpu6050(struct i2c_client *mpu6050_client, u8 address, void *data, u32 lengt/;"	f	typeref:typename:int	file:
+i2c_write_mpu	mpu/mpu.c	/^static int i2c_write_mpu(struct i2c_client *client, u8 address, u8 data)$/;"	f	typeref:typename:int	file:
+i2c_write_mpu6050	mpu/i2c_mpu6050.c	/^static int i2c_write_mpu6050(struct i2c_client *mpu6050_client, u8 address, u8 data)$/;"	f	typeref:typename:int	file:
+id	bus/xdev.c	/^unsigned long id = 0;$/;"	v	typeref:typename:unsigned long
+init	network/app/eth_uart.c	/^int init(const char* eth_uio, const char* uart_dev, int* fds)$/;"	f	typeref:typename:int
+init	network/app/eth_uart_for_arm.c	/^int init(const char* eth_uio, const char* uart_dev, int* fds)$/;"	f	typeref:typename:int
+input_handler	char/app/signal.c	/^void input_handler(int sig)$/;"	f	typeref:typename:void
+irq	interrupt/interrupt.c	/^	unsigned int irq;$/;"	m	struct:button_drv	typeref:typename:unsigned int	file:
+irq_handler	interrupt/interrupt.c	/^static irqreturn_t irq_handler(int irq, void *dev_id)$/;"	f	typeref:typename:irqreturn_t	file:
+irq_num	interrupt/key2.c	/^	int irq_num;$/;"	m	struct:key_dev	typeref:typename:int	file:
+itype	export_symbol/caculation.c	/^static int itype=0;$/;"	v	typeref:typename:int	file:
+itype	export_symbol/hello.c	/^static int itype=0;$/;"	v	typeref:typename:int	file:
+kernel_modules	bus/Makefile	/^kernel_modules:$/;"	t
+kernel_modules	char/Makefile	/^kernel_modules:$/;"	t
+kernel_modules	device_tree/Makefile	/^kernel_modules:$/;"	t
+kernel_modules	export_symbol/Makefile	/^kernel_modules:$/;"	t
+kernel_modules	interrupt/Makefile	/^kernel_modules:$/;"	t
+kernel_modules	mpu/Makefile	/^kernel_modules:$/;"	t
+kernel_modules	oled/Makefile	/^kernel_modules:$/;"	t
+kernel_modules	rgb/Makefile	/^kernel_modules:$/;"	t
+key	interrupt/key2.c	/^static struct key_dev key;$/;"	v	typeref:struct:key_dev	file:
+key_dev	interrupt/key2.c	/^struct key_dev {$/;"	s	file:
+key_fops	interrupt/key2.c	/^static struct file_operations key_fops = {$/;"	v	typeref:struct:file_operations	file:
+key_gpio	interrupt/key2.c	/^	int key_gpio;$/;"	m	struct:key_dev	typeref:typename:int	file:
+key_gpio_init	interrupt/key2.c	/^static int key_gpio_init(void)$/;"	f	typeref:typename:int	file:
+key_interrupt	interrupt/key2.c	/^static irqreturn_t key_interrupt(int irq, void *dev_id)$/;"	f	typeref:typename:irqreturn_t	file:
+key_open	interrupt/key2.c	/^static int key_open(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+key_parse_dt	interrupt/key2.c	/^static int key_parse_dt(void)$/;"	f	typeref:typename:int	file:
+key_poll	interrupt/key2.c	/^static unsigned int key_poll(struct file *filp, struct poll_table_struct *wait)$/;"	f	typeref:typename:unsigned int	file:
+key_read	interrupt/key2.c	/^static ssize_t key_read(struct file *filp, char __user *buf, size_t cnt, loff_t *offt)$/;"	f	typeref:typename:ssize_t	file:
+key_release	interrupt/key2.c	/^static int key_release(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+key_status	interrupt/key2.c	/^enum key_status {$/;"	g	file:
+key_timer_function	interrupt/key2.c	/^static void key_timer_function(struct timer_list *arg)$/;"	f	typeref:typename:void	file:
+key_write	interrupt/key2.c	/^static int key_write(struct file* filp, const char __user *buf, size_t cnt, loff_t *offt)$/;"	f	typeref:typename:int	file:
+led_cdev	device_tree/pinctrl_rgb.c	/^	struct cdev led_cdev;$/;"	m	struct:led_data	typeref:struct:cdev	file:
+led_cdev	device_tree/rgb.c	/^	struct cdev led_cdev;$/;"	m	struct:led_data	typeref:struct:cdev	file:
+led_cdev	rgb/platform_rgb.c	/^	struct cdev led_cdev;$/;"	m	struct:led_data	typeref:struct:cdev	file:
+led_cdev	rgb/rgb.c	/^static struct led_cdev led_cdev = {$/;"	v	typeref:struct:led_cdev	file:
+led_cdev	rgb/rgb.c	/^struct led_cdev$/;"	s	file:
+led_chr_dev	device_tree/get_dts_info.c	/^static struct cdev led_chr_dev;$/;"	v	typeref:struct:cdev	file:
+led_chr_dev_fops	device_tree/get_dts_info.c	/^static struct file_operations  led_chr_dev_fops = $/;"	v	typeref:struct:file_operations	file:
+led_chr_dev_open	device_tree/get_dts_info.c	/^static int led_chr_dev_open(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+led_chr_dev_release	device_tree/get_dts_info.c	/^static int led_chr_dev_release(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+led_chrdev_class	device_tree/get_dts_info.c	/^struct class *led_chrdev_class;$/;"	v	typeref:struct:class *
+led_chrdev_class	rgb/rgb.c	/^struct class *led_chrdev_class;$/;"	v	typeref:struct:class *
+led_chrdev_exit	device_tree/get_dts_info.c	/^static void __exit led_chrdev_exit(void)$/;"	f	typeref:typename:void __exit	file:
+led_chrdev_fops	device_tree/pinctrl_rgb.c	/^static struct file_operations led_chrdev_fops = {$/;"	v	typeref:struct:file_operations	file:
+led_chrdev_fops	device_tree/rgb.c	/^static struct file_operations led_chrdev_fops = {$/;"	v	typeref:struct:file_operations	file:
+led_chrdev_fops	rgb/platform_rgb.c	/^static struct file_operations led_chrdev_fops = {$/;"	v	typeref:struct:file_operations	file:
+led_chrdev_fops	rgb/rgb.c	/^static struct file_operations led_chrdev_fops = {$/;"	v	typeref:struct:file_operations	file:
+led_chrdev_init	device_tree/get_dts_info.c	/^static int __init led_chrdev_init(void)$/;"	f	typeref:typename:int __init	file:
+led_chrdev_write	device_tree/pinctrl_rgb.c	/^static ssize_t led_chrdev_write(struct file *filp, const char __user *buf, size_t count, loff_t /;"	f	typeref:typename:ssize_t	file:
+led_chrdev_write	device_tree/rgb.c	/^static ssize_t led_chrdev_write(struct file *filp, const char __user *buf, size_t count, loff_t /;"	f	typeref:typename:ssize_t	file:
+led_chrdev_write	rgb/platform_rgb.c	/^static ssize_t led_chrdev_write(struct file *filp, const char __user *buf, size_t count, loff_t /;"	f	typeref:typename:ssize_t	file:
+led_chrdev_write	rgb/rgb.c	/^static ssize_t led_chrdev_write(struct file *filp, const char __user *buf, size_t count, loff_t /;"	f	typeref:typename:ssize_t	file:
+led_close	device_tree/pinctrl_rgb.c	/^static int led_close(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+led_close	device_tree/rgb.c	/^static int led_close(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+led_close	mpu/mpu.c	/^static int led_close(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+led_close	rgb/platform_rgb.c	/^static int led_close(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+led_close	rgb/rgb.c	/^static int led_close(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+led_data	device_tree/pinctrl_rgb.c	/^struct led_data$/;"	s	file:
+led_data	device_tree/rgb.c	/^struct led_data$/;"	s	file:
+led_data	rgb/platform_rgb.c	/^struct led_data$/;"	s	file:
+led_device_node	device_tree/get_dts_info.c	/^struct device_node	*led_device_node; \/\/led的设备树节点$/;"	v	typeref:struct:device_node *
+led_devno	device_tree/get_dts_info.c	/^static dev_t led_devno;$/;"	v	typeref:typename:dev_t	file:
+led_open	device_tree/pinctrl_rgb.c	/^static int led_open(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+led_open	device_tree/rgb.c	/^static int led_open(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+led_open	mpu/mpu.c	/^static int led_open(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+led_open	rgb/platform_rgb.c	/^static int led_open(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+led_open	rgb/rgb.c	/^static int led_open(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+led_pdev_ids	rgb/platform_rgb.c	/^static struct platform_device_id led_pdev_ids[] = {$/;"	v	typeref:struct:platform_device_id[]	file:
+led_pdrv	device_tree/pinctrl_rgb.c	/^static struct platform_driver led_pdrv = {$/;"	v	typeref:struct:platform_driver	file:
+led_pdrv	device_tree/rgb.c	/^static struct platform_driver led_pdrv = {$/;"	v	typeref:struct:platform_driver	file:
+led_pdrv	rgb/platform_rgb.c	/^static struct platform_driver led_pdrv = {$/;"	v	typeref:struct:platform_driver	file:
+led_pdrv_exit	device_tree/pinctrl_rgb.c	/^static __exit void led_pdrv_exit(void)$/;"	f	typeref:typename:__exit void	file:
+led_pdrv_exit	device_tree/rgb.c	/^static __exit void led_pdrv_exit(void)$/;"	f	typeref:typename:__exit void	file:
+led_pdrv_exit	rgb/platform_rgb.c	/^static __exit void led_pdrv_exit(void)$/;"	f	typeref:typename:__exit void	file:
+led_pdrv_init	device_tree/pinctrl_rgb.c	/^static __init int led_pdrv_init(void)$/;"	f	typeref:typename:__init int	file:
+led_pdrv_init	device_tree/rgb.c	/^static __init int led_pdrv_init(void)$/;"	f	typeref:typename:__init int	file:
+led_pdrv_init	rgb/platform_rgb.c	/^static __init int led_pdrv_init(void)$/;"	f	typeref:typename:__init int	file:
+led_pdrv_probe	device_tree/pinctrl_rgb.c	/^static int led_pdrv_probe(struct platform_device *pdev)$/;"	f	typeref:typename:int	file:
+led_pdrv_probe	device_tree/rgb.c	/^static int led_pdrv_probe(struct platform_device *pdev)$/;"	f	typeref:typename:int	file:
+led_pdrv_probe	rgb/platform_rgb.c	/^static int led_pdrv_probe(struct platform_device *pdev)$/;"	f	typeref:typename:int	file:
+led_pdrv_remove	device_tree/pinctrl_rgb.c	/^static int led_pdrv_remove( struct platform_device *pdev)$/;"	f	typeref:typename:int	file:
+led_pdrv_remove	device_tree/rgb.c	/^static int led_pdrv_remove( struct platform_device *pdev)$/;"	f	typeref:typename:int	file:
+led_pdrv_remove	rgb/platform_rgb.c	/^static int led_pdrv_remove( struct platform_device *pdev)$/;"	f	typeref:typename:int	file:
+led_pin	device_tree/pinctrl_rgb.c	/^	unsigned int led_pin;$/;"	m	struct:led_data	typeref:typename:unsigned int	file:
+led_pin	device_tree/rgb.c	/^	unsigned int led_pin;$/;"	m	struct:led_data	typeref:typename:unsigned int	file:
+led_pin	rgb/platform_rgb.c	/^	unsigned int led_pin;$/;"	m	struct:led_data	typeref:typename:unsigned int	file:
+led_pin	rgb/rgb.c	/^	unsigned int  led_pin;$/;"	m	struct:led_cdev	typeref:typename:unsigned int	file:
+led_release	rgb/platform_dev.c	/^static void led_release(struct device *dev)$/;"	f	typeref:typename:void	file:
+length	oled/app/test_app.h	/^    u32 length;$/;"	m	struct:oled_display_struct	typeref:typename:u32
+length	oled/oled.c	/^	u32 length;$/;"	m	struct:oled_display	typeref:typename:u32	file:
+lock	block/test.c	/^	spinlock_t lock;$/;"	m	struct:vmem_disk_dev	typeref:typename:spinlock_t	file:
+main	char/app/signal.c	/^int main()$/;"	f	typeref:typename:int
+main	interrupt/keyapp.c	/^int main(int argc, char *argv[])$/;"	f	typeref:typename:int
+main	interrupt/noblockapp.c	/^int main(int argc, char *argv[])$/;"	f	typeref:typename:int
+main	mpu/mpu_app.c	/^int main()$/;"	f	typeref:typename:int
+main	mpu/test_app.c	/^int main(int argc, char *argv[])$/;"	f	typeref:typename:int
+main	network/app/eth_uart.c	/^int main(int argc, char *argv[])$/;"	f	typeref:typename:int
+main	network/app/eth_uart_for_arm.c	/^int main(int argc, char *argv[])$/;"	f	typeref:typename:int
+main	oled/app/test_app.c	/^int main(int argc, char *argv[])$/;"	f	typeref:typename:int
+main_routine	network/app/eth_uart.c	/^int main_routine(int eth_fd, int uart_fd, int max_buf)$/;"	f	typeref:typename:int
+main_routine	network/app/eth_uart_for_arm.c	/^int main_routine(int eth_fd, int uart_fd, int max_buf)$/;"	f	typeref:typename:int
+media_change	block/test.c	/^	short media_change;$/;"	m	struct:vmem_disk_dev	typeref:typename:short	file:
+mem	char/global.c	/^    unsigned char mem[GLOBALMEM_SIZE];$/;"	m	struct:globalmem_dev	typeref:typename:unsigned char[]	file:
+mem	char/test.c	/^	char mem[TEST_SIZE];$/;"	m	struct:test_dev	typeref:typename:char[]	file:
+mpu6050_chr_dev	mpu/i2c_mpu6050.c	/^static struct cdev mpu6050_chr_dev;		 \/\/定义字符设备结构体chr_dev$/;"	v	typeref:struct:cdev	file:
+mpu6050_chr_dev_fops	mpu/i2c_mpu6050.c	/^static struct file_operations mpu6050_chr_dev_fops =$/;"	v	typeref:struct:file_operations	file:
+mpu6050_client	mpu/i2c_mpu6050.c	/^struct i2c_client *mpu6050_client = NULL; \/\/保存mpu6050设备对应的i2c_client结构体，/;"	v	typeref:struct:i2c_client *
+mpu6050_device_node	mpu/i2c_mpu6050.c	/^struct device_node *mpu6050_device_node; \/\/rgb_led的设备树节点结构体$/;"	v	typeref:struct:device_node *
+mpu6050_devno	mpu/i2c_mpu6050.c	/^static dev_t mpu6050_devno;				 \/\/定义字符设备的设备号$/;"	v	typeref:typename:dev_t	file:
+mpu6050_driver	mpu/i2c_mpu6050.c	/^struct i2c_driver mpu6050_driver = {$/;"	v	typeref:struct:i2c_driver
+mpu6050_driver_exit	mpu/i2c_mpu6050.c	/^static void __exit mpu6050_driver_exit(void)$/;"	f	typeref:typename:void __exit	file:
+mpu6050_driver_init	mpu/i2c_mpu6050.c	/^static int __init mpu6050_driver_init(void)$/;"	f	typeref:typename:int __init	file:
+mpu6050_init	mpu/i2c_mpu6050.c	/^static int mpu6050_init(void)$/;"	f	typeref:typename:int	file:
+mpu6050_init	mpu/mpu.c	/^static int mpu6050_init(struct i2c_client *client)$/;"	f	typeref:typename:int	file:
+mpu6050_of_match_table	mpu/i2c_mpu6050.c	/^static const struct of_device_id mpu6050_of_match_table[] = {$/;"	v	typeref:typename:const struct of_device_id[]	file:
+mpu6050_open	mpu/i2c_mpu6050.c	/^static int mpu6050_open(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+mpu6050_probe	mpu/i2c_mpu6050.c	/^static int mpu6050_probe(struct i2c_client *client, const struct i2c_device_id *id)$/;"	f	typeref:typename:int	file:
+mpu6050_read	mpu/i2c_mpu6050.c	/^static ssize_t mpu6050_read(struct file *filp, char __user *buf, size_t cnt, loff_t *off)$/;"	f	typeref:typename:ssize_t	file:
+mpu6050_release	mpu/i2c_mpu6050.c	/^static int mpu6050_release(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+mpu6050_remove	mpu/i2c_mpu6050.c	/^static int mpu6050_remove(struct i2c_client *client)$/;"	f	typeref:typename:int	file:
+mpu_6050	mpu/mpu.c	/^static struct of_device_id mpu_6050[] = {$/;"	v	typeref:struct:of_device_id[]	file:
+mpu_cdev	mpu/mpu.c	/^	struct cdev mpu_cdev;$/;"	m	struct:mpu_dev	typeref:struct:cdev	file:
+mpu_chrdev_fops	mpu/mpu.c	/^static struct file_operations mpu_chrdev_fops = {$/;"	v	typeref:struct:file_operations	file:
+mpu_dev	mpu/mpu.c	/^struct mpu_dev$/;"	s	file:
+mpu_driver	mpu/mpu.c	/^static struct i2c_driver mpu_driver = {$/;"	v	typeref:struct:i2c_driver	file:
+mpu_read	mpu/mpu.c	/^static ssize_t mpu_read(struct file *filp, char __user *buf, size_t cnt, loff_t *off)$/;"	f	typeref:typename:ssize_t	file:
+my_add	export_symbol/caculation.c	/^int my_add(int a, int b)$/;"	f	typeref:typename:int
+my_tasklet	char/test.c	/^struct tasklet_struct my_tasklet;$/;"	v	typeref:struct:tasklet_struct
+myled_class	device_tree/pinctrl_rgb.c	/^	struct class *myled_class;$/;"	m	struct:led_data	typeref:struct:class *	file:
+myled_class	device_tree/rgb.c	/^struct class *myled_class;$/;"	v	typeref:struct:class *
+myled_class	rgb/platform_rgb.c	/^struct class *myled_class;$/;"	v	typeref:struct:class *
+name	bus/xdrv.c	/^char *name = "xdrv";$/;"	v	typeref:typename:char *
+nd	interrupt/key2.c	/^	struct device_node *nd;$/;"	m	struct:key_dev	typeref:struct:device_node *	file:
+ndev	network/virnet.c	/^    struct net_device *ndev;$/;"	m	struct:virnet	typeref:struct:net_device *	file:
+ndevices	block/test.c	/^static int ndevices = 4;$/;"	v	typeref:typename:int	file:
+node	interrupt/interrupt.c	/^	struct device_node *node;$/;"	m	struct:button_drv	typeref:struct:device_node *	file:
+nsectors	block/test.c	/^static int nsectors = 1024;$/;"	v	typeref:typename:int	file:
+obj-m	bus/Makefile	/^obj-m := xdrv.o$/;"	m
+obj-m	char/Makefile	/^obj-m = global.o$/;"	m
+obj-m	device_tree/Makefile	/^obj-m := pinctrl_rgb.o$/;"	m
+obj-m	export_symbol/Makefile	/^obj-m := hello.o caculation.o$/;"	m
+obj-m	interrupt/Makefile	/^obj-m := key2.o$/;"	m
+obj-m	mpu/Makefile	/^obj-m := mpu.o i2c_mpu6050.o$/;"	m
+obj-m	network/Makefile	/^obj-m = virnet.o$/;"	m
+obj-m	oled/Makefile	/^obj-m := oled.o$/;"	m
+obj-m	rgb/Makefile	/^obj-m := platform_rgb.o$/;"	m
+of_button	interrupt/interrupt.c	/^static struct of_device_id of_button[] = {$/;"	v	typeref:struct:of_device_id[]	file:
+oled_chrdev_fops	oled/oled.c	/^static struct file_operations oled_chrdev_fops = {$/;"	v	typeref:struct:file_operations	file:
+oled_dev	oled/oled.c	/^struct oled_dev$/;"	s	file:
+oled_display	oled/oled.c	/^struct oled_display{$/;"	s	file:
+oled_display_struct	oled/app/test_app.h	/^typedef struct oled_display_struct$/;"	s
+oled_display_struct	oled/app/test_app.h	/^}oled_display_struct;$/;"	t	typeref:struct:oled_display_struct
+oled_driver	interrupt/interrupt.c	/^static struct platform_driver oled_driver = {$/;"	v	typeref:struct:platform_driver	file:
+oled_driver	oled/oled.c	/^static struct spi_driver oled_driver = {$/;"	v	typeref:struct:spi_driver	file:
+oled_fill	oled/app/test_app.c	/^int oled_fill(int fd, u8 start_x, u8 start_y, u8 end_x, u8 end_y, u8 data)$/;"	f	typeref:typename:int
+oled_init_data	oled/oled.c	/^u8 oled_init_data[] = {$/;"	v	typeref:typename:u8[]
+oled_node	oled/oled.c	/^	struct device_node *oled_node;$/;"	m	struct:oled_dev	typeref:struct:device_node *	file:
+oled_read	oled/oled.c	/^static int oled_read(struct  oled_dev *dev, u8 reg, void *buf, int len)$/;"	f	typeref:typename:int	file:
+oled_show_F16X16_letter	oled/app/test_app.c	/^int oled_show_F16X16_letter(int fd, u8 x, u8 y, u8 *data, u32 length)$/;"	f	typeref:typename:int
+oled_show_F6X8_string	oled/app/test_app.c	/^int oled_show_F6X8_string(int fd, u8 x, u8 y, u8 *string)$/;"	f	typeref:typename:int
+oled_show_F8X16_string	oled/app/test_app.c	/^int oled_show_F8X16_string(int fd, u8 x, u8 y, u8 *string)$/;"	f	typeref:typename:int
+oled_show_one_letter	oled/app/test_app.c	/^int oled_show_one_letter(int fd, u8 x, u8 y, u8 width, u8 high, u8 *data)$/;"	f	typeref:typename:int
+oled_write	oled/oled.c	/^static int oled_write(struct  oled_dev *dev, u8 reg, int len)$/;"	f	typeref:typename:int	file:
+oled_write_data	oled/oled.c	/^static int oled_write_data(struct oled_dev *dev)$/;"	f	typeref:typename:int	file:
+oled_write_reg_data	oled/oled.c	/^static int oled_write_reg_data(struct oled_dev *dev, u8 reg, u8 *data, int size)$/;"	f	typeref:typename:int	file:
+open	interrupt/interrupt.c	/^static int open(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+open	oled/oled.c	/^static int open(struct inode *inode, struct file *filp)$/;"	f	typeref:typename:int	file:
+open_uart	network/app/eth_uart.c	/^int open_uart(const char* dev)$/;"	f	typeref:typename:int
+open_uart	network/app/eth_uart_for_arm.c	/^int open_uart(const char* dev)$/;"	f	typeref:typename:int
+out_file_name	oled/app/makefile	/^out_file_name = "test_app"$/;"	m
+out_values	device_tree/get_dts_info.c	/^unsigned int out_values[18];  \/\/保存读取得到的REG 属性值$/;"	v	typeref:typename:unsigned int[18]
+pdrv_exit	interrupt/interrupt.c	/^static __exit void pdrv_exit(void)$/;"	f	typeref:typename:__exit void	file:
+pdrv_exit	interrupt/key2.c	/^static __exit void pdrv_exit(void)$/;"	f	typeref:typename:__exit void	file:
+pdrv_exit	mpu/mpu.c	/^static __exit void pdrv_exit(void)$/;"	f	typeref:typename:__exit void	file:
+pdrv_exit	oled/oled.c	/^static __exit void pdrv_exit(void)$/;"	f	typeref:typename:__exit void	file:
+pdrv_init	interrupt/interrupt.c	/^static __init int pdrv_init(void)$/;"	f	typeref:typename:__init int	file:
+pdrv_init	interrupt/key2.c	/^static __init int pdrv_init(void)$/;"	f	typeref:typename:__init int	file:
+pdrv_init	mpu/mpu.c	/^static __init int pdrv_init(void)$/;"	f	typeref:typename:__init int	file:
+pdrv_init	oled/oled.c	/^static __init int pdrv_init(void)$/;"	f	typeref:typename:__init int	file:
+pdrv_probe	interrupt/interrupt.c	/^static int pdrv_probe(struct platform_device *pdev)$/;"	f	typeref:typename:int	file:
+pdrv_probe	mpu/mpu.c	/^static int pdrv_probe(struct i2c_client *client, const struct i2c_device_id *id)$/;"	f	typeref:typename:int	file:
+pdrv_probe	oled/oled.c	/^static int pdrv_probe(struct spi_device *spi)$/;"	f	typeref:typename:int	file:
+pdrv_remove	interrupt/interrupt.c	/^static int pdrv_remove( struct platform_device *pdev)$/;"	f	typeref:typename:int	file:
+pdrv_remove	mpu/mpu.c	/^static int pdrv_remove( struct i2c_client *client)$/;"	f	typeref:typename:int	file:
+pdrv_remove	oled/oled.c	/^static int pdrv_remove( struct spi_device *spi)$/;"	f	typeref:typename:int	file:
+proc	network/virnet.c	/^    struct proc_dir_entry *proc;$/;"	m	struct:virnet	typeref:struct:proc_dir_entry *	file:
+proc_uio	network/virnet.c	/^    struct proc_dir_entry *proc_uio;$/;"	m	struct:virnet	typeref:struct:proc_dir_entry *	file:
+queue	block/test.c	/^	struct request_queue *queue;$/;"	m	struct:vmem_disk_dev	typeref:struct:request_queue *	file:
+r_wait	char/global.c	/^    wait_queue_head_t r_wait;$/;"	m	struct:globalmem_dev	typeref:typename:wait_queue_head_t	file:
+r_wait	char/test.c	/^	wait_queue_head_t r_wait;$/;"	m	struct:test_dev	typeref:typename:wait_queue_head_t	file:
+r_wait	interrupt/key2.c	/^	wait_queue_head_t r_wait;$/;"	m	struct:key_dev	typeref:typename:wait_queue_head_t	file:
+read	oled/oled.c	/^static int read(struct file *filp, char __user *buf, size_t cnt, loff_t *off)$/;"	f	typeref:typename:int	file:
+read_uart	network/app/eth_uart_for_arm.c	/^void *read_uart(void *arg)$/;"	f	typeref:typename:void *
+request_mode	block/test.c	/^static int request_mode = RM_NOQUEUE;$/;"	v	typeref:typename:int	file:
+rgb_led	device_tree/pinctrl_rgb.c	/^static struct of_device_id rgb_led[] = {$/;"	v	typeref:struct:of_device_id[]	file:
+rgb_led	device_tree/rgb.c	/^static struct of_device_id rgb_led[] = {$/;"	v	typeref:struct:of_device_id[]	file:
+rgb_led_device_node	device_tree/pinctrl_rgb.c	/^	struct device_node *rgb_led_device_node;$/;"	m	struct:led_data	typeref:struct:device_node *	file:
+rgb_led_device_node	device_tree/rgb.c	/^struct device_node *rgb_led_device_node;$/;"	v	typeref:struct:device_node *
+rgb_led_red_device_node	device_tree/get_dts_info.c	/^struct device_node  *rgb_led_red_device_node; \/\/rgb_led_red 红灯节点$/;"	v	typeref:struct:device_node *
+rgb_led_red_property	device_tree/get_dts_info.c	/^struct property     *rgb_led_red_property;    \/\/定义属性结构体指针$/;"	v	typeref:struct:property *
+rled_hwinfo	rgb/platform_dev.c	/^unsigned int rled_hwinfo[2] = { 13, 0 };$/;"	v	typeref:typename:unsigned int[2]
+rled_pdev	rgb/platform_dev.c	/^static struct platform_device rled_pdev = {$/;"	v	typeref:struct:platform_device	file:
+rled_resource	rgb/platform_dev.c	/^static struct resource rled_resource[] = {$/;"	v	typeref:struct:resource[]	file:
+secnd_close	char/secnd.c	/^static int secnd_close(struct inode *node, struct file *fop)$/;"	f	typeref:typename:int	file:
+secnd_dev	char/secnd.c	/^struct secnd_dev {$/;"	s	file:
+secnd_dev_setup	char/secnd.c	/^void secnd_dev_setup(struct secnd_dev *dev, int index)$/;"	f	typeref:typename:void
+secnd_devp	char/secnd.c	/^struct secnd_dev *secnd_devp;$/;"	v	typeref:struct:secnd_dev *
+secnd_exit	char/secnd.c	/^void __exit secnd_exit(void)$/;"	f	typeref:typename:void __exit
+secnd_fops	char/secnd.c	/^static const struct file_operations secnd_fops = $/;"	v	typeref:typename:const struct file_operations	file:
+secnd_init	char/secnd.c	/^static int secnd_init(void)$/;"	f	typeref:typename:int	file:
+secnd_major	char/secnd.c	/^static int secnd_major = SECND_MAJOR;$/;"	v	typeref:typename:int	file:
+secnd_open	char/secnd.c	/^static int secnd_open(struct inode *node, struct file *fop)$/;"	f	typeref:typename:int	file:
+secnd_read	char/secnd.c	/^static ssize_t secnd_read(struct file *filp, char __user *buf, size_t count, loff_t *ppos)$/;"	f	typeref:typename:ssize_t	file:
+secnod_timer_handle	char/secnd.c	/^static void secnod_timer_handle(struct timer_list *timer)$/;"	f	typeref:typename:void	file:
+sem	char/global.c	/^    struct semaphore sem;$/;"	m	struct:globalmem_dev	typeref:struct:semaphore	file:
+sem	char/test.c	/^	struct semaphore sem;$/;"	m	struct:test_dev	typeref:struct:semaphore	file:
+sem	network/virnet.c	/^    struct semaphore sem;$/;"	m	struct:virnet	typeref:struct:semaphore	file:
+setup_device	block/test.c	/^static void setup_device( struct vmem_disk_dev *dev, int which)$/;"	f	typeref:typename:void	file:
+sg_frame	network/virnet.c	/^    struct sk_buff* sg_frame;$/;"	m	struct:virnet	typeref:struct:sk_buff *	file:
+sg_ops	network/virnet.c	/^static struct net_device_ops sg_ops = $/;"	v	typeref:struct:net_device_ops	file:
+show_bmp	oled/app/test_app.c	/^int show_bmp(int fd, u8 x, u8 y, u8 *buffer, u32 length)$/;"	f	typeref:typename:int
+size	block/test.c	/^	int size;$/;"	m	struct:vmem_disk_dev	typeref:typename:int	file:
+size	device_tree/get_dts_info.c	/^int size = 0 ;$/;"	v	typeref:typename:int
+spi	oled/oled.c	/^	struct spi_device *spi;$/;"	m	struct:oled_dev	typeref:struct:spi_device *	file:
+spi_oled	oled/oled.c	/^static struct of_device_id spi_oled[] = {$/;"	v	typeref:struct:of_device_id[]	file:
+status	interrupt/key2.c	/^	atomic_t status;$/;"	m	struct:key_dev	typeref:typename:atomic_t	file:
+t_save	network/app/eth_uart.c	/^struct termios t_save;$/;"	v	typeref:struct:termios
+t_save	network/app/eth_uart_for_arm.c	/^struct termios t_save;$/;"	v	typeref:struct:termios
+test_close	char/test.c	/^static int test_close (struct inode *node, struct file *filp)$/;"	f	typeref:typename:int	file:
+test_dev	char/test.c	/^struct test_dev { struct cdev cdev;$/;"	s	file:
+test_dev_setup	char/test.c	/^static void test_dev_setup(struct test_dev *dev, int index)$/;"	f	typeref:typename:void	file:
+test_device_driver	char/test.c	/^static struct platform_driver test_device_driver = {$/;"	v	typeref:struct:platform_driver	file:
+test_devp	char/test.c	/^struct test_dev *test_devp;$/;"	v	typeref:struct:test_dev *
+test_exit	char/test.c	/^static void __exit test_exit(void)$/;"	f	typeref:typename:void __exit	file:
+test_fasync	char/test.c	/^static int test_fasync(int fd, struct file *filp, int mode)$/;"	f	typeref:typename:int	file:
+test_fops	char/test.c	/^static const struct file_operations test_fops = {$/;"	v	typeref:typename:const struct file_operations	file:
+test_handler	char/test.c	/^static irqreturn_t test_handler(int irq, void *id)$/;"	f	typeref:typename:irqreturn_t	file:
+test_init	char/test.c	/^static int __init test_init(void)$/;"	f	typeref:typename:int __init	file:
+test_key_table	char/test.c	/^static const struct of_device_id test_key_table[] = {$/;"	v	typeref:typename:const struct of_device_id[]	file:
+test_major	char/test.c	/^static int test_major = TEST_MAJOR;$/;"	v	typeref:typename:int	file:
+test_open	char/test.c	/^static int test_open(struct inode *node, struct file *fop)$/;"	f	typeref:typename:int	file:
+test_probe	char/test.c	/^static int  test_probe(struct platform_device *pdev)$/;"	f	typeref:typename:int	file:
+test_read	char/test.c	/^static ssize_t test_read(struct file *filp, char __user *buf, size_t count, loff_t *ppos)$/;"	f	typeref:typename:ssize_t	file:
+test_remove	char/test.c	/^static int test_remove(struct platform_device *pdev)$/;"	f	typeref:typename:int	file:
+test_write	char/test.c	/^static ssize_t test_write(struct file *filp, const char __user *buf, size_t count, loff_t *ppos)$/;"	f	typeref:typename:ssize_t	file:
+timer	char/secnd.c	/^    struct timer_list timer;$/;"	m	struct:secnd_dev	typeref:struct:timer_list	file:
+timer	interrupt/key2.c	/^	struct timer_list timer;$/;"	m	struct:key_dev	typeref:struct:timer_list	file:
+to_send	network/app/eth_uart_for_arm.c	/^uint8_t to_send[4096];$/;"	v	typeref:typename:uint8_t[4096]
+to_send_len	network/app/eth_uart_for_arm.c	/^int to_send_len = 0;$/;"	v	typeref:typename:int
+u32	oled/app/test_app.h	/^#define u32 /;"	d
+u8	oled/app/test_app.h	/^#define u8 /;"	d
+users	block/test.c	/^	short users;$/;"	m	struct:vmem_disk_dev	typeref:typename:short	file:
+va_BSRR	device_tree/rgb.c	/^	unsigned int __iomem *va_BSRR;$/;"	m	struct:led_data	typeref:typename:unsigned int __iomem *	file:
+va_BSRR	rgb/platform_rgb.c	/^	unsigned int __iomem *va_BSRR;$/;"	m	struct:led_data	typeref:typename:unsigned int __iomem *	file:
+va_MODER	device_tree/rgb.c	/^	unsigned int __iomem *va_MODER;$/;"	m	struct:led_data	typeref:typename:unsigned int __iomem *	file:
+va_MODER	rgb/platform_rgb.c	/^	unsigned int __iomem *va_MODER;$/;"	m	struct:led_data	typeref:typename:unsigned int __iomem *	file:
+va_OSPEEDR	device_tree/rgb.c	/^	unsigned int __iomem *va_OSPEEDR;$/;"	m	struct:led_data	typeref:typename:unsigned int __iomem *	file:
+va_OSPEEDR	rgb/platform_rgb.c	/^	unsigned int __iomem *va_OSPEEDR;$/;"	m	struct:led_data	typeref:typename:unsigned int __iomem *	file:
+va_OTYPER	device_tree/rgb.c	/^	unsigned int __iomem *va_OTYPER;$/;"	m	struct:led_data	typeref:typename:unsigned int __iomem *	file:
+va_OTYPER	rgb/platform_rgb.c	/^	unsigned int __iomem *va_OTYPER;$/;"	m	struct:led_data	typeref:typename:unsigned int __iomem *	file:
+va_PUPDR	device_tree/rgb.c	/^	unsigned int __iomem *va_PUPDR;$/;"	m	struct:led_data	typeref:typename:unsigned int __iomem *	file:
+va_PUPDR	rgb/platform_rgb.c	/^	unsigned int __iomem *va_PUPDR;$/;"	m	struct:led_data	typeref:typename:unsigned int __iomem *	file:
+va_bsrr	rgb/rgb.c	/^	unsigned int __iomem *va_bsrr;$/;"	m	struct:led_cdev	typeref:typename:unsigned int __iomem *	file:
+va_clkaddr	device_tree/rgb.c	/^static void  __iomem *va_clkaddr;$/;"	v	typeref:typename:void __iomem *	file:
+va_clkaddr	rgb/platform_rgb.c	/^unsigned int __iomem *va_clkaddr;$/;"	v	typeref:typename:unsigned int __iomem *
+va_clkaddr	rgb/rgb.c	/^unsigned int __iomem *va_clkaddr;$/;"	v	typeref:typename:unsigned int __iomem *
+va_moder	rgb/rgb.c	/^	unsigned int __iomem *va_moder;$/;"	m	struct:led_cdev	typeref:typename:unsigned int __iomem *	file:
+va_ospeedr	rgb/rgb.c	/^	unsigned int __iomem *va_ospeedr;$/;"	m	struct:led_cdev	typeref:typename:unsigned int __iomem *	file:
+va_otyper	rgb/rgb.c	/^	unsigned int __iomem *va_otyper;$/;"	m	struct:led_cdev	typeref:typename:unsigned int __iomem *	file:
+va_pupdr	rgb/rgb.c	/^	unsigned int __iomem *va_pupdr;$/;"	m	struct:led_cdev	typeref:typename:unsigned int __iomem *	file:
+virnet	network/virnet.c	/^struct virnet {$/;"	s	file:
+virnet_exit	network/virnet.c	/^static void virnet_exit(void)$/;"	f	typeref:typename:void	file:
+virnet_init	network/virnet.c	/^static int virnet_init(void)$/;"	f	typeref:typename:int	file:
+virnet_send_packet	network/virnet.c	/^static int virnet_send_packet( struct sk_buff *skb, struct net_device *dev)$/;"	f	typeref:typename:int	file:
+vmem_disk_MINORS	block/test.c	/^#define vmem_disk_MINORS /;"	d	file:
+vmem_disk_dev	block/test.c	/^struct vmem_disk_dev {$/;"	s	file:
+vmem_disk_exit	block/test.c	/^void __exit vmem_disk_exit(void)$/;"	f	typeref:typename:void __exit
+vmem_disk_getgeo	block/test.c	/^static int vmem_disk_getgeo(struct block_device *bdev, struct hd_geometry *geo)$/;"	f	typeref:typename:int	file:
+vmem_disk_init	block/test.c	/^static int __init vmem_disk_init(void)$/;"	f	typeref:typename:int __init	file:
+vmem_disk_major	block/test.c	/^static int vmem_disk_major = 0;$/;"	v	typeref:typename:int	file:
+vmem_disk_make_request	block/test.c	/^static unsigned int vmem_disk_make_request(struct request_queue *q, struct bio *bio)$/;"	f	typeref:typename:unsigned int	file:
+vmem_disk_ops	block/test.c	/^static struct block_device_operations vmem_disk_ops = {$/;"	v	typeref:struct:block_device_operations	file:
+vmem_disk_request	block/test.c	/^static void vmem_disk_request(struct request_queue *q)$/;"	f	typeref:typename:void	file:
+vmem_disk_transfer	block/test.c	/^static void vmem_disk_transfer(struct vmem_disk_dev *dev, unsigned long sector,$/;"	f	typeref:typename:void	file:
+vmem_disk_xfer_bio	block/test.c	/^static int vmem_disk_xfer_bio(struct vmem_disk_dev *dev, struct bio *bio)$/;"	f	typeref:typename:int	file:
+vnet	network/virnet.c	/^struct virnet *vnet;$/;"	v	typeref:struct:virnet *
+vnet_ops	network/virnet.c	/^static const struct file_operations vnet_ops = $/;"	v	typeref:typename:const struct file_operations	file:
+vnet_ops	network/virnet.c	/^static const struct proc_ops vnet_ops = $/;"	v	typeref:typename:const struct proc_ops	file:
+w_wait	char/global.c	/^    wait_queue_head_t w_wait;$/;"	m	struct:globalmem_dev	typeref:typename:wait_queue_head_t	file:
+w_wait	char/test.c	/^	wait_queue_head_t w_wait;$/;"	m	struct:test_dev	typeref:typename:wait_queue_head_t	file:
+wq	network/virnet.c	/^    wait_queue_head_t wq;$/;"	m	struct:virnet	typeref:typename:wait_queue_head_t	file:
+write	oled/oled.c	/^static int write(struct file *filp, const char __user *buf, size_t cnt, loff_t *off)$/;"	f	typeref:typename:int	file:
+x	oled/app/test_app.h	/^	u8 x;$/;"	m	struct:oled_display_struct	typeref:typename:u8
+x	oled/oled.c	/^	u8 x;$/;"	m	struct:oled_display	typeref:typename:u8	file:
+x86	network/Makefile	/^x86:x86_modules$/;"	t
+x86_517	network/Makefile	/^x86_517:x86_517_modules cp_modules$/;"	t
+x86_517_modules	network/Makefile	/^x86_517_modules:$/;"	t
+x86_modules	network/Makefile	/^x86_modules:$/;"	t
+xbus	bus/bus.c	/^static struct bus_type xbus =$/;"	v	typeref:struct:bus_type	file:
+xbus_exit	bus/bus.c	/^static void __exit xbus_exit(void)$/;"	f	typeref:typename:void __exit	file:
+xbus_exit	bus/xdev.c	/^static void __exit xbus_exit(void)$/;"	f	typeref:typename:void __exit	file:
+xbus_init	bus/bus.c	/^static int __init xbus_init(void)$/;"	f	typeref:typename:int __init	file:
+xbus_init	bus/xdev.c	/^static int __init xbus_init(void)$/;"	f	typeref:typename:int __init	file:
+xbus_match	bus/bus.c	/^int xbus_match(struct device *dev, struct device_driver *drv)$/;"	f	typeref:typename:int
+xbus_test_show	bus/bus.c	/^ssize_t xbus_test_show(struct bus_type *bus, char *buf)$/;"	f	typeref:typename:ssize_t
+xdev	bus/xdev.c	/^static struct device xdev = {$/;"	v	typeref:struct:device	file:
+xdev_id_show	bus/xdev.c	/^ssize_t xdev_id_show(struct device *dev, struct device_attribute *attr, char *buf)$/;"	f	typeref:typename:ssize_t
+xdev_id_store	bus/xdev.c	/^ssize_t xdev_id_store(struct device *dev, struct device_attribute *attr,const char *buf, size_t /;"	f	typeref:typename:ssize_t
+xdev_release	bus/xdev.c	/^void xdev_release(struct device *dev)$/;"	f	typeref:typename:void
+xdrv	bus/xdrv.c	/^static struct device_driver xdrv = {$/;"	v	typeref:struct:device_driver	file:
+xdrv_exit	bus/xdrv.c	/^static void __exit xdrv_exit(void)$/;"	f	typeref:typename:void __exit	file:
+xdrv_init	bus/xdrv.c	/^static int __init xdrv_init(void)$/;"	f	typeref:typename:int __init	file:
+xdrv_probe	bus/xdrv.c	/^int xdrv_probe(struct device *dev)$/;"	f	typeref:typename:int
+xdrv_remove	bus/xdrv.c	/^int xdrv_remove(struct device *dev)$/;"	f	typeref:typename:int
+y	oled/app/test_app.h	/^	u8 y;$/;"	m	struct:oled_display_struct	typeref:typename:u8
+y	oled/oled.c	/^	u8 y;$/;"	m	struct:oled_display	typeref:typename:u8	file:

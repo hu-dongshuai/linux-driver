@@ -11,7 +11,7 @@ export ARCH CROSS_COMPILE
 
 #src := $(wildcard *.c)
 #obj-m := $(patsubst %.c,%.o,$(src))
-obj-m := fb_ssd1306.o
+obj-m := oled.o
 
 #obj-m := modulename.o(多个文件需要编译)
 #modulename-objs := file1.o file2.o

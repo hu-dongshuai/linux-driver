@@ -121,16 +121,8 @@ int main()
      exit (4);
   }
 
-  for (i=0; i<20; i++)
+  for (i=0; i<10000; i++)
   {
-        color = 0x00;
-        for (y = 0; y < vinfo.yres; y++)
-        {
-            for(x = 0; x < vinfo.xres; x++)
-            lcd_show_pixel(fbp, finfo.line_length, vinfo.bits_per_pixel, x, y, color);
-        }
-        usleep(1000*1000);
-
         x=5;y=10;
         for(j=0; j<10; j++)
         {
@@ -138,7 +130,16 @@ int main()
             for (k=0; k<3; k++)
                 oled_show_one_letter(fbp, x+k*16, y+10*j, 16, F8x16[j+k*10]);
         }
-        usleep(1000*1000);
+
+       // usleep(20);
+          x=5;y=10;
+        for(j=0; j<10; j++)
+        {
+            
+            for (k=0; k<3; k++)
+                oled_show_one_letter(fbp, x+k*16, y+10*j, 16, F8x16[30+j+k*10]);
+        }
+        //usleep(20);
         
   }
 
